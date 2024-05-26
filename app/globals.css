@@ -2,32 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html {
+  font-size: 1.12vw;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@media screen and (max-width: 639px) {
+  html {
+    font-size: 16px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: inherit;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.swiper-free-mode > .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.padding-global {
+  @apply px-9 sm:px-[7.5rem];
+}
+
+.rich-text {
+  @apply flex flex-col gap-4 text-sm leading-tight sm:text-base [&>h2]:font-black [&>h2]:text-2xl sm:[&>h2]:text-[2rem] [&>h3]:font-black [&>h3]:text-lg sm:[&>h3]:text-xl;
 }
