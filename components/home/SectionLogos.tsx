@@ -24,7 +24,7 @@ export default function SectionLogos() {
         dir="rtl"
       >
         {[...Array(10)].map((_, i) => (
-          <SwiperSlide key={i} className="relative !w-[18.75rem] aspect-[2/1]">
+          <SwiperSlide key={i} className="relative !w-[9rem] sm:!w-[18.75rem] aspect-[2/1]">
             <Image src="/images/flow.png" alt="Flow Music App" fill={true} />
           </SwiperSlide>
         ))}

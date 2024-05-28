@@ -3,20 +3,24 @@ import Image from 'next/image';
 export default function SectionDesignDialogues() {
   return (
     <section>
-      <div className="padding-global pb-[9.25rem]">
-        <div className="grid gap-6 relative">
-          <h2 className="text-2xl font-medium leading-[1.1] -tracking-[0.03rem]">Design Dialogues</h2>
-          <h3 className="text-7xl font-medium leading-[1.1] -tracking-[0.18rem]">Let’s grow together...</h3>
-          <p className="text-2xl font-normal leading-[1.5] max-w-[33.88rem]">
+      <div className="padding-global pb-10 sm:pb-[9.25rem]">
+        <div className="grid gap-4 sm:gap-6 relative">
+          <h2 className="text-base sm:text-2xl font-medium leading-[1.1] -tracking-[0.04rem] sm:-tracking-[0.03rem]">
+            Design Dialogues
+          </h2>
+          <h3 className="text-5xl sm:text-7xl font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.18rem]">
+            Let’s grow together...
+          </h3>
+          <p className="text-base sm:text-2xl font-normal leading-[1.5] max-w-[33.88rem] mt-2 sm:mt-0">
             Rapid prototyping is in our blood. We build living and breathing prototype awesome ideas in hours that are
             testable.
           </p>
 
-          <div className="absolute right-0 bottom-0 w-[45rem] aspect-[16/9] overflow-hidden rounded-[1.13rem]">
+          <div className="relative mt-6 sm:mt-0 sm:absolute right-0 bottom-0 w-full sm:w-[45rem] aspect-[16/9] overflow-hidden rounded-[1.13rem]">
             <div className="w-full h-full relative">
               <Image src="/images/home-meet-founders.jpg" alt="Xers Founders" fill={true} />
             </div>
-            <div className="w-[5.63rem] aspect-square text-xers-blue absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div className="w-10 sm:w-[5.63rem] aspect-square text-xers-blue absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <svg width="100%" height="100%" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_b_1_2932)">
                   <rect width="80" height="80" rx="40" fill="currentColor" />
@@ -52,7 +56,7 @@ export default function SectionDesignDialogues() {
           <img
             src="/images/design-dialogues.svg"
             alt="Design Dialogues"
-            className="mt-[10rem] w-[15.94rem] h-[7.44rem]"
+            className="absolute top-0 right-0 sm:static sm:mt-[10rem] w-[4.56rem] sm:w-[15.94rem] h-[2.18rem] sm:h-[7.44rem]"
           />
         </div>
       </div>

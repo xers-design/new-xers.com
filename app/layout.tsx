@@ -45,9 +45,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={twm(`${generalSans.variable}`)}>
       <body className={generalSans.className}>
+        {/* delete this wrapper later */}
+        {/* <div className="overflow-hidden"> */}
         <Navbar />
         {children}
         <SectionGetInTouch />
+        {/* </div> */}
       </body>
     </html>
   );

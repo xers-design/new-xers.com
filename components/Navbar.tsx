@@ -17,18 +17,18 @@ export default function Navbar() {
 
   return (
     <header className="absolute z-10 inset-0 top-8 bottom-auto w-full">
-      <div className="padding-global flex justify-between">
+      <div className="padding-global flex items-center justify-between">
         <Link href="/">
-          <div className="h-12 aspect-[2/1]  relative">
+          <div className="h-[2.88rem] sm:h-12 aspect-[2/1]  relative">
             <Image src="/xers.svg" alt="Xers Logo" fill={true} />
           </div>
         </Link>
 
         <button
           onClick={handleClick}
-          className={`relative z-10 grid place-items-center w-14 aspect-square rounded-full ${colorClasses}`}
+          className={`shrink-0 relative z-10 w-10 h-10 sm:w-14 sm:h-14 rounded-full ${colorClasses}`}
         >
-          <div className="w-6 aspect-square">
+          <div className="w-6 aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 12H21" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M3 6H21" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
@@ -39,49 +39,56 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="fixed inset-0 w-full h-full bg-[#03070C] bg-opacity-80">
-            <div className="w-[58.2rem] overflow-hidden absolute inset-3 left-auto bg-xers-blue shadow rounded-2xl">
-              <img src="/images/menu-bg.svg" alt="" className="absolute inset-0 w-full h-full" />
+            <div className="w-full sm:w-[58.2rem] overflow-hidden absolute inset-0 sm:inset-3 sm:left-auto bg-xers-blue sm:shadow sm:rounded-2xl">
+              <img src="/images/menu-bg.svg" alt="" className="hidden sm:block absolute inset-0 w-full h-full" />
+              <img src="/images/menu-bg-mobile.svg" alt="" className="sm:hidden absolute inset-0 w-full h-full" />
 
-              <div className="h-12 aspect-[2/1] absolute top-5 left-10">
+              <div className="h-[2.88rem] sm:h-12 aspect-[2/1] absolute top-[2.05rem] sm:top-[1.55rem] left-6 sm:left-10">
                 <Image src="/xers-white.svg" alt="Xers Logo" fill={true} />
               </div>
-              {/* <div className="bg-red-500 h-1 fixed z-50 w-full top-7" />
-              <div className="bg-red-500 h-1 fixed z-50 w-full top-20" /> */}
-              <div className="relative grid grid-cols-2 h-full">
+              {/* <div className="bg-red-500 h-[1px] fixed z-50 w-full top-9 sm:top-8" />
+              <div className="bg-red-500 h-[1px] fixed z-50 w-full top-[4.7rem] sm:top-[5.5rem]" /> */}
+              <div className="relative grid grid-cols-1 sm:grid-cols-2 h-full">
                 <div className="pt-[8.75rem] flex flex-col h-full">
                   <Link onClick={handleClick} href="/">
-                    <div className="relative text-xers-blue pt-[0.63rem] pb-4 pl-10 overflow-hidden rounded-tr-[0.25rem] rounded-br-[0.25rem]">
+                    <div className="relative text-xers-blue pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]">
                       <div className="absolute inset-0 right-auto w-full h-full bg-white" />
-                      <div className="relative text-[4.8rem] font-medium leading-[1.1] -tracking-[0.23rem]">Home</div>
+                      <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
+                        Home
+                      </div>
                     </div>
                   </Link>
                   <Link onClick={handleClick} href="/about">
-                    <div className="relative text-white pt-[0.63rem] pb-4 pl-10 overflow-hidden rounded-tr-[0.25rem] rounded-br-[0.25rem]">
+                    <div className="relative text-white pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]">
                       <div className="absolute inset-0 right-auto w-0 h-full bg-white" />
-                      <div className="relative text-[4.8rem] font-medium leading-[1.1] -tracking-[0.23rem]">About</div>
+                      <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
+                        About
+                      </div>
                     </div>
                   </Link>
                   <Link onClick={handleClick} href="/projects">
-                    <div className="relative text-white pt-[0.63rem] pb-4 pl-10 overflow-hidden rounded-tr-[0.25rem] rounded-br-[0.25rem]">
+                    <div className="relative text-white pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]">
                       <div className="absolute inset-0 right-auto w-0 h-full bg-white" />
-                      <div className="relative text-[4.8rem] font-medium leading-[1.1] -tracking-[0.23rem]">Work</div>
+                      <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
+                        Work
+                      </div>
                     </div>
                   </Link>
                   <Link onClick={handleClick} href="/contact">
-                    <div className="relative text-white pt-[0.63rem] pb-4 pl-10 overflow-hidden rounded-tr-[0.25rem] rounded-br-[0.25rem]">
+                    <div className="relative text-white pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]">
                       <div className="absolute inset-0 right-auto w-0 h-full bg-white" />
-                      <div className="relative text-[4.8rem] font-medium leading-[1.1] -tracking-[0.23rem]">
+                      <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
                         Contact
                       </div>
                     </div>
                   </Link>
 
-                  <div className="mt-auto text-white pl-10 pb-8">
+                  <div className="mt-auto text-white pl-6 sm:pl-10 pb-8">
                     <SocialIcons />
                   </div>
                 </div>
 
-                <div className="grid place-items-center">
+                <div className="hidden sm:grid place-items-center">
                   <div className="flex flex-col items-start justify-center gap-9">
                     <div className="relative w-[12.2rem] aspect-[0.6/1]">
                       <Image src="/images/menu-photos.png" alt="Xers" fill={true} />
