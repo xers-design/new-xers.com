@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import font from 'next/font/local';
 import { twMerge as twm } from 'tailwind-merge';
+import Navbar from '@/components/Navbar';
+import SectionGetInTouch from '@/components/GetInTouch';
 
 import './globals.css';
 
@@ -16,6 +17,11 @@ const generalSans = font({
       path: '../public/fonts/GeneralSans-Medium.ttf',
       style: 'normal',
       weight: '500',
+    },
+    {
+      path: '../public/fonts/GeneralSans-Semibold.ttf',
+      style: 'normal',
+      weight: '600',
     },
     {
       path: '../public/fonts/GeneralSans-Bold.ttf',
@@ -38,7 +44,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={twm(`${generalSans.variable}`)}>
-      <body className={generalSans.className}>{children}</body>
+      <body className={generalSans.className}>
+        <Navbar />
+        {children}
+        <SectionGetInTouch />
+      </body>
     </html>
   );
 }

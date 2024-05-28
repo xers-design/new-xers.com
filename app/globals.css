@@ -20,12 +20,32 @@ html {
   }
 }
 
+body {
+  overscroll-behavior: none;
+}
+
 .swiper-free-mode > .swiper-wrapper {
   transition-timing-function: linear !important;
 }
 
+.bullet {
+  font-size: 2.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.11rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.bullet-active {
+  opacity: 1;
+}
+
 .padding-global {
-  @apply px-9 sm:px-[7.5rem];
+  @apply px-6 sm:px-14;
+}
+
+.padding-global-2 {
+  @apply px-2 sm:px-8;
 }
 
 .rich-text {
