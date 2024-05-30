@@ -4,7 +4,7 @@ import Project from '@/components/home/Project';
 export default function SectionProjects() {
   return (
     <section className="h-[calc(300vh+32rem)]">
-      <div className="sticky top-14 overflow-hidden pb-2">
+      <div className="sticky z-10 top-14 overflow-hidden pb-2">
         <div className="padding-global flex items-end justify-center sm:justify-between">
           <img
             src="/images/badge-agency.svg"
@@ -25,7 +25,11 @@ export default function SectionProjects() {
       </div>
 
       {[...Array(3)].map((_, i) => (
-        <div key={i} className="relative h-screen  grid place-items-center">
+        <div
+          style={{ transform: 'translate3d(0, 0, 0)' }}
+          key={i}
+          className="relative z-20 h-screen grid place-items-center"
+        >
           <Project />
         </div>
       ))}

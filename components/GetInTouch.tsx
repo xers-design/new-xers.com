@@ -1,8 +1,14 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+import { twMerge as twm } from 'tailwind-merge';
 import SocialIcons from '@/components/SocialIcons';
 
 export default function GetInTouch() {
+  const pathname = usePathname();
+
   return (
-    <section id="get-in-touch">
+    <section id="get-in-touch" className={twm(pathname.startsWith('/projects/') && 'hidden')}>
       <div className="sm:px-14 sm:pb-14">
         <div className="relative pt-8 sm:pt-[4.5rem] pl-6 sm:pl-[4.5rem] pb-8 sm:pb-10 pr-6 sm:pr-[3.75rem] bg-black text-white sm:rounded-2xl overflow-hidden">
           <img
@@ -15,7 +21,13 @@ export default function GetInTouch() {
             alt=""
             className="sm:hidden absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute top-5 sm:top-[4.5rem] left-0 sm:left-[4.5rem] w-full sm:w-[40.44rem] h-[10rem] sm:h-[11.94rem] bg-black blur-[4rem] sm:blur-[8.75rem]" />
+          {pathname === '/contact' && <div className="pt-24 sm:pt-0" />}
+          <div
+            className={twm(
+              'absolute sm:top-[4.5rem] left-0 sm:left-[4.5rem] w-full sm:w-[40.44rem] h-[10rem] sm:h-[11.94rem] bg-black blur-[4rem] sm:blur-[8.75rem]',
+              pathname === '/contact' ? 'top-28' : 'top-5'
+            )}
+          />
           <h2 className="relative text-5xl sm:text-[5.25rem] font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.21rem] max-w-[38rem]">
             Let’s get in touch with us
           </h2>

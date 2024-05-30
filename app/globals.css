@@ -36,8 +36,13 @@ body {
   opacity: 0.5;
   cursor: pointer;
 }
+
 .bullet-active {
   opacity: 1;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .padding-global {
