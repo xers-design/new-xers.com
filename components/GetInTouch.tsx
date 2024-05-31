@@ -96,9 +96,9 @@ export default function GetInTouch() {
                     <path
                       d="M2 10H18M18 10L10 2M18 10L10 18"
                       stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </div>

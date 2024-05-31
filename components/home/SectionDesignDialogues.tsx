@@ -28,9 +28,9 @@ export default function SectionDesignDialogues() {
                     d="M35.0156 30.9922L49.0156 39.9922L35.0156 48.9922V30.9922Z"
                     fill="white"
                     stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </g>
                 <defs>
@@ -41,9 +41,9 @@ export default function SectionDesignDialogues() {
                     width="96"
                     height="96"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                   >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feGaussianBlur in="BackgroundImageFix" stdDeviation="4" />
                     <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_2932" />
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_2932" result="shape" />

@@ -38,9 +38,9 @@ export default function Projects() {
                         <path
                           d="M30.863 53.1369L53.1369 30.8631M53.1369 30.8631H30.863M53.1369 30.8631V53.1369"
                           stroke="white"
-                          stroke-width="3.9375"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="3.9375"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </div>
