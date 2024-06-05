@@ -1,9 +1,15 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import { sanityClient } from '@/studio/lib/client';
+import { aboutPageQuery } from '@/studio/queries';
 import SectionBros from '@/components/about/SectionBros';
 import SectionMovingText from '@/components/about/SectionMovingText';
 import SectionVision from '@/components/about/SectionVision';
+import type { AboutPage } from '@/studio/types';
 
-export default function About() {
+export default async function About() {
+  const aboutPage: AboutPage = await sanityClient.fetch(aboutPageQuery);
+
   return (
     <>
       <section className="relative">
@@ -19,7 +25,7 @@ export default function About() {
         />
         <div className="relative padding-global pt-[8.38rem] sm:pt-[9.88rem]">
           <h1 className="text-[3.75rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.32rem] max-w-[70rem]">
-            We’re twin founder of xers
+            {aboutPage.title}
           </h1>
           <div className="flex items-center justify-center sm:justify-end mt-[4.5rem] sm:mt-14">
             <Link href="/">
@@ -57,9 +63,29 @@ export default function About() {
           </div>
         </div>
       </section>
-      <SectionBros />
+
+      <SectionBros aboutPage={aboutPage} />
       <SectionMovingText />
-      <SectionVision />
+      <SectionVision aboutPage={aboutPage} />
+
+      {aboutPage.imagesDesktop && (
+        <section className="padding-global hidden sm:block mb-[8.5rem]">
+          <div
+            style={{ aspectRatio: `${aboutPage.imagesDesktop.aspectRatio}/1` }}
+            className="relative overflow-hidden rounded-2xl"
+          >
+            <Image
+              fill={true}
+              src={aboutPage.imagesDesktop.url}
+              alt={aboutPage.imagesDesktop.caption}
+              placeholder="blur"
+              blurDataURL={aboutPage.imagesDesktop.lqip}
+            />
+          </div>
+        </section>
+      )}
     </>
   );
 }
+
+// style={{ aspectRatio: `${bro.image.aspectRatio}/1` }}
