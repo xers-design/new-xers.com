@@ -37,6 +37,20 @@ export const aboutPageQuery = groq`
 }
 `;
 
+export const projectsQuery = groq`
+*[_type == "project" && defined(slug.current)] | order(_createdAt desc) {
+    name,
+    slug,
+    description,
+    "cardImage": {
+        "url": cardImage.image.asset->url,
+        "lqip": cardImage.image.asset->metadata.lqip,
+        "caption": cardImage.caption,
+        "aspectRatio": cardImage.image.asset->metadata.dimensions.aspectRatio
+    },
+}  
+`;
+
 export const projectDetailQuery = groq`
 *[_type == "project" && slug.current == $slug][0] {
     ...,
@@ -99,6 +113,10 @@ export const projectDetailQuery = groq`
         slug,
     },
     "nextProject": *[_type == "project" && _createdAt > ^._createdAt] | order(_createdAt asc)[0] {
+        name,
+        slug,
+    },
+    "firstProject": *[_type == "project"] | order(_createdAt asc)[0] {
         name,
         slug,
     }

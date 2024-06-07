@@ -4,15 +4,11 @@ import { usePathname } from 'next/navigation';
 import { twMerge as twm } from 'tailwind-merge';
 import SocialIcons from '@/components/SocialIcons';
 
-// show is used to show in project detail page when there is no next project
-export default function GetInTouch({ show }: { show: boolean }) {
+export default function GetInTouch() {
   const pathname = usePathname();
 
   return (
-    <section
-      id="get-in-touch"
-      className={twm(pathname.startsWith('/projects/') && !show && 'hidden', show && 'pt-10 sm:pt-[8.5rem]')}
-    >
+    <section id="get-in-touch" className={twm(pathname.startsWith('/projects/') && 'hidden')}>
       <div className="sm:px-14 sm:pb-14">
         <div className="relative pt-8 sm:pt-[4.5rem] pl-6 sm:pl-[4.5rem] pb-8 sm:pb-10 pr-6 sm:pr-[3.75rem] bg-black text-white sm:rounded-2xl overflow-hidden">
           <img

@@ -88,6 +88,13 @@ export interface Slug {
   _type: string;
 }
 
+export interface Project {
+  name: string;
+  slug: Slug;
+  description: string;
+  cardImage: Image;
+}
+
 export interface ProjectDetail {
   featuredImage: Image;
   featuredImageMobile: Image;
@@ -107,6 +114,7 @@ export interface ProjectDetail {
   logo: Image;
   slug: Slug;
   slogan: string;
+  description: string;
   devPartner: string;
   client: string;
   market: string;
@@ -115,6 +123,10 @@ export interface ProjectDetail {
     slug: Slug;
   };
   nextProject: {
+    name: string;
+    slug: Slug;
+  };
+  firstProject: {
     name: string;
     slug: Slug;
   };
