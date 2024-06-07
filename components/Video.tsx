@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
+import Player from 'next-video/player';
 import { useOnClickOutside } from 'usehooks-ts';
 import type { Video } from '@/studio/types';
 
@@ -75,11 +76,16 @@ export default function Video({ video }: { video: Video }) {
 
       {isOpen && (
         <div role="button" className="fixed z-10 inset-0 bg-[#03070C] bg-opacity-80 grid place-items-center">
-          <div ref={ref} className="relative w-[90%] sm:w-1/2 aspect-[16/9]">
-            <video className="absolute inset-0 w-full h-full rounded-md sm:rounded-xl" controls preload="none" autoPlay>
-              <source src={video.url} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div ref={ref} className="relative w-[90%] sm:w-1/2 aspect-[16/9] rounded-2xl overflow-hidden">
+            <Player
+              autoPlay="any"
+              src={video.url}
+              poster={video.thumbnail.url}
+              blurDataURL={video.thumbnail.lqip}
+              primaryColor="#3E8DFF"
+              metadataVideoTitle={video.caption}
+              accentColor="rgba(62, 141, 255, 0.25)"
+            />
           </div>
         </div>
       )}
