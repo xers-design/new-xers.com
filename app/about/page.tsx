@@ -87,5 +87,3 @@ export default async function About() {
     </>
   );
 }
-
-// style={{ aspectRatio: `${bro.image.aspectRatio}/1` }}

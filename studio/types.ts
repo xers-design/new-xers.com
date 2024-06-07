@@ -50,3 +50,72 @@ export interface AboutPage {
   isActive: boolean;
   video?: Video;
 }
+
+export interface Testimonial {
+  image: Image;
+  quote: string;
+  _type: string;
+  name: string;
+  position: string;
+  _key: string;
+}
+
+export interface Platform {
+  _type: string;
+  name: string;
+  _key: string;
+  imagesDesktop: Image;
+  imagesMobile: Image[];
+}
+
+export interface Highlight {
+  number: string;
+  _type: string;
+  verb: string;
+  noun: string;
+  _key: string;
+}
+
+export interface Challenge {
+  solution: string;
+  _type: string;
+  challenge: string;
+  _key: string;
+}
+
+export interface Slug {
+  current: string;
+  _type: string;
+}
+
+export interface ProjectDetail {
+  featuredImage: Image;
+  featuredImageMobile: Image;
+  intro?: string;
+  _updatedAt: string;
+  _type: string;
+  testimonials?: Testimonial[];
+  _createdAt: string;
+  name: string;
+  challengeImage?: Image;
+  platforms: Platform[];
+  highlights?: Highlight[];
+  challenges: Challenge[];
+  _id: string;
+  _rev: string;
+  outroImage: Image;
+  logo: Image;
+  slug: Slug;
+  slogan: string;
+  devPartner: string;
+  client: string;
+  market: string;
+  previousProject: {
+    name: string;
+    slug: Slug;
+  };
+  nextProject: {
+    name: string;
+    slug: Slug;
+  };
+}

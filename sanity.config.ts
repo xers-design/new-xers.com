@@ -9,13 +9,12 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import { apiVersion, dataset, projectId } from './studio/env';
 import { schema } from './studio/schema';
 
 export default defineConfig({
   basePath: '/studio',
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID as string,
-  dataset: process.env.SANITY_STUDIO_DATASET as string,
+  projectId: 'xldz1sfy', // dont forget to change this
+  dataset: 'production',
   schema,
-  plugins: [structureTool(), visionTool({ defaultApiVersion: apiVersion })],
+  plugins: [structureTool(), visionTool({ defaultApiVersion: '2024-05-31' })],
 });

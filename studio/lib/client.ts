@@ -1,11 +1,9 @@
 import { createClient } from 'next-sanity';
 
-import { apiVersion, useCdn } from '../env';
-
 export const sanityClient = createClient({
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID as string,
-  dataset: process.env.SANITY_STUDIO_DATASET as string,
-  apiVersion,
-  useCdn,
+  projectId: process.env.NEXT_PLUBIC_SANITY_PROJECT_ID as string,
+  dataset: process.env.NEXT_PLUBIC_SANITY_DATASET as string,
+  apiVersion: '2024-05-31',
+  useCdn: true,
   perspective: 'published',
 });

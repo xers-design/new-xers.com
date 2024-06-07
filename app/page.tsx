@@ -1,5 +1,4 @@
 import { sanityClient } from '@/studio/lib/client';
-
 import SectionHero from '@/components/home/SectionHero';
 import SectionLogos from '@/components/home/SectionLogos';
 import SectionHighlights from '@/components/home/SectionHighlights';
