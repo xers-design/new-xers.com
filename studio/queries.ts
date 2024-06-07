@@ -122,3 +122,46 @@ export const projectDetailQuery = groq`
     }
 }  
 `;
+
+export const homePageQuery = groq`
+*[_type == "pageHome" && isActive == true][0] {
+    ...,
+    logos[] {
+      "url": image.asset->url,
+      "lqip": image.asset->metadata.lqip,
+      "caption": caption,
+      "aspectRatio": image.asset->metadata.dimensions.aspectRatio
+    },
+    "videoOne": {
+      "caption": videoOne.caption,
+      "url": videoOne.video.asset->url,
+      "thumbnail": {
+        "url": videoOne.thumbnail.image.asset->url,
+        "lqip": videoOne.thumbnail.image.asset->metadata.lqip,
+        "caption": videoOne.thumbnail.caption,
+        "aspectRatio": videoOne.thumbnail.image.asset->metadata.dimensions.aspectRatio
+      }
+    },
+    projects[]->{
+      name,
+      slug,
+      description,
+      "homeCardImage": {
+        "url": homeCardImage.image.asset->url,
+        "lqip": homeCardImage.image.asset->metadata.lqip,
+        "caption": homeCardImage.caption,
+        "aspectRatio": homeCardImage.image.asset->metadata.dimensions.aspectRatio
+      }
+    },
+    "videoTwo": {
+      "caption": videoTwo.caption,
+      "url": videoTwo.video.asset->url,
+      "thumbnail": {
+        "url": videoTwo.thumbnail.image.asset->url,
+        "lqip": videoTwo.thumbnail.image.asset->metadata.lqip,
+        "caption": videoTwo.thumbnail.caption,
+        "aspectRatio": videoTwo.thumbnail.image.asset->metadata.dimensions.aspectRatio
+      }
+    }
+  }  
+`;

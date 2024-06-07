@@ -3,11 +3,12 @@
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Autoplay } from 'swiper/modules';
+import type { HomePage } from '@/studio/types';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-export default function SectionLogos() {
+export default function SectionLogos({ homePage }: { homePage: HomePage }) {
   return (
     <section>
       <Swiper
@@ -23,9 +24,9 @@ export default function SectionLogos() {
         }}
         dir="rtl"
       >
-        {[...Array(10)].map((_, i) => (
+        {homePage.logos.map((logo, i) => (
           <SwiperSlide key={i} className="relative !w-[9rem] sm:!w-[18.75rem] aspect-[2/1]">
-            <Image src="/images/flow.png" alt="Flow Music App" fill={true} sizes="" />
+            <Image src={logo.url} alt={logo.caption} placeholder="blur" blurDataURL={logo.lqip} fill={true} />
           </SwiperSlide>
         ))}
       </Swiper>

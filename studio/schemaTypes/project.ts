@@ -43,6 +43,12 @@ export default defineType({
       validation: (r) => r.required(),
     }),
     defineField({
+      name: 'homeCardImage',
+      title: 'Card Image (Home)',
+      type: 'customImage',
+      validation: (r) => r.required(),
+    }),
+    defineField({
       name: 'slogan',
       title: 'Slogan',
       type: 'string',

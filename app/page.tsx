@@ -1,4 +1,5 @@
 import { sanityClient } from '@/studio/lib/client';
+import { homePageQuery } from '@/studio/queries';
 import SectionHero from '@/components/home/SectionHero';
 import SectionLogos from '@/components/home/SectionLogos';
 import SectionHighlights from '@/components/home/SectionHighlights';
@@ -7,20 +8,21 @@ import SectionProjects from '@/components/home/SectionProjects';
 import SectionServices from '@/components/home/SectionServices';
 import SectionProcess from '@/components/home/SectionProcess';
 import SectionDesignDialogues from '@/components/home/SectionDesignDialogues';
+import type { HomePage } from '@/studio/types';
 
 export default async function Home() {
-  const posts = await sanityClient.fetch(`*[_type == "post"] {title}`);
-  console.log({ posts });
+  const homePage: HomePage = await sanityClient.fetch(homePageQuery);
+
   return (
     <>
       <SectionHero />
-      <SectionLogos />
-      <SectionHighlights />
-      <SectionMeetFounders />
-      <SectionProjects />
+      <SectionLogos homePage={homePage} />
+      <SectionHighlights homePage={homePage} />
+      <SectionMeetFounders homePage={homePage} />
+      <SectionProjects homePage={homePage} />
       <SectionServices />
       <SectionProcess />
-      <SectionDesignDialogues />
+      <SectionDesignDialogues homePage={homePage} />
     </>
   );
 }

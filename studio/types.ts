@@ -93,6 +93,7 @@ export interface Project {
   slug: Slug;
   description: string;
   cardImage: Image;
+  homeCardImage: Image;
 }
 
 export interface ProjectDetail {
@@ -130,4 +131,19 @@ export interface ProjectDetail {
     name: string;
     slug: Slug;
   };
+}
+
+export interface HomePage {
+  _updatedAt: string;
+  logos: Image[];
+  isActive: boolean;
+  videoTwo: Video;
+  projects: Project[];
+  videoOne: Video;
+  highlights: Highlight[];
+  _createdAt: string;
+  title: string;
+  _rev: string;
+  _type: string;
+  _id: string;
 }

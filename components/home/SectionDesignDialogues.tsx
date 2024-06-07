@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import Video from '@/components/Video';
+import type { HomePage } from '@/studio/types';
 
-export default function SectionDesignDialogues() {
+export default function SectionDesignDialogues({ homePage }: { homePage: HomePage }) {
   return (
     <section>
       <div className="padding-global pb-10 sm:pb-[9.25rem]">
@@ -17,40 +19,7 @@ export default function SectionDesignDialogues() {
           </p>
 
           <div className="relative mt-6 sm:mt-0 sm:absolute right-0 bottom-0 w-full sm:w-[45rem] aspect-[16/9] overflow-hidden rounded-[1.13rem]">
-            <div className="w-full h-full relative">
-              <Image src="/images/home-meet-founders.jpg" alt="Xers Founders" fill={true} />
-            </div>
-            <div className="w-10 sm:w-[5.63rem] aspect-square text-xers-blue absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <svg width="100%" height="100%" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g filter="url(#filter0_b_1_2932)">
-                  <rect width="80" height="80" rx="40" fill="currentColor" />
-                  <path
-                    d="M35.0156 30.9922L49.0156 39.9922L35.0156 48.9922V30.9922Z"
-                    fill="white"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </g>
-                <defs>
-                  <filter
-                    id="filter0_b_1_2932"
-                    x="-8"
-                    y="-8"
-                    width="96"
-                    height="96"
-                    filterUnits="userSpaceOnUse"
-                    colorInterpolationFilters="sRGB"
-                  >
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="4" />
-                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_2932" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_2932" result="shape" />
-                  </filter>
-                </defs>
-              </svg>
-            </div>
+            <Video video={homePage.videoTwo} />
           </div>
 
           <img

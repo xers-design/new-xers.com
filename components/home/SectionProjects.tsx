@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Project from '@/components/home/Project';
+import type { HomePage } from '@/studio/types';
 
-export default function SectionProjects() {
+export default function SectionProjects({ homePage }: { homePage: HomePage }) {
   return (
     <section className="h-[calc(300vh+32rem)]">
       <div className="sticky z-10 top-14 overflow-hidden pb-2">
@@ -17,20 +18,20 @@ export default function SectionProjects() {
             </div>
           </Link>
         </div>
-        <div className="mt-14 sm:mt-[4.5rem]">
+        <div className="mt-14 sm:mt-[4.5rem] pb-3">
           <div className="text-[3.75rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.32rem] whitespace-nowrap -translate-x-[10%]">
             Designing revolutionary products
           </div>
         </div>
       </div>
 
-      {[...Array(3)].map((_, i) => (
+      {homePage.projects.map((project, i) => (
         <div
           style={{ transform: 'translate3d(0, 0, 0)' }}
           key={i}
-          className="relative z-20 h-screen grid place-items-center"
+          className="relative z-20 h-screen grid place-items-center pointer-events-none"
         >
-          <Project />
+          <Project project={project} />
         </div>
       ))}
     </section>
