@@ -3,17 +3,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { twMerge as twm } from 'tailwind-merge';
 import SocialIcons from '@/components/SocialIcons';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const colorClasses = isOpen ? 'bg-white text-black' : 'bg-black text-white';
-
   const handleClick = () => setIsOpen(!isOpen);
+
+  const colorClasses = isOpen ? 'bg-white text-black' : 'bg-black text-white';
 
   useEffect(() => {
     isOpen ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset');
   }, [isOpen]);
+
+  const pathname = usePathname();
+  const paths = [
+    { label: 'Home', to: '/' },
+    { label: 'About', to: '/about' },
+    { label: 'Works', to: '/projects' },
+    { label: 'Contact', to: '/contact' },
+  ];
 
   return (
     <header className="absolute z-10 inset-0 top-8 bottom-auto w-full">
@@ -50,38 +60,26 @@ export default function Navbar() {
               <div className="bg-red-500 h-[1px] fixed z-50 w-full top-[4.7rem] sm:top-[5.5rem]" /> */}
               <div className="relative grid grid-cols-1 sm:grid-cols-2 h-full">
                 <div className="pt-[8.75rem] flex flex-col h-full">
-                  <Link onClick={handleClick} href="/">
-                    <div className="relative text-xers-blue pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]">
-                      <div className="absolute inset-0 right-auto w-full h-full bg-white" />
-                      <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
-                        Home
+                  {paths.map((path, i) => (
+                    <Link key={i} onClick={handleClick} href={path.to}>
+                      <div
+                        className={twm(
+                          'relative pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]',
+                          pathname === path.to ? 'text-xers-blue' : 'text-white'
+                        )}
+                      >
+                        <div
+                          className={twm(
+                            'absolute inset-0 right-auto  h-full bg-white',
+                            pathname === path.to ? 'w-full' : 'w-0'
+                          )}
+                        />
+                        <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
+                          {path.label}
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                  <Link onClick={handleClick} href="/about">
-                    <div className="relative text-white pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]">
-                      <div className="absolute inset-0 right-auto w-0 h-full bg-white" />
-                      <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
-                        About
-                      </div>
-                    </div>
-                  </Link>
-                  <Link onClick={handleClick} href="/projects">
-                    <div className="relative text-white pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]">
-                      <div className="absolute inset-0 right-auto w-0 h-full bg-white" />
-                      <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
-                        Work
-                      </div>
-                    </div>
-                  </Link>
-                  <Link onClick={handleClick} href="/contact">
-                    <div className="relative text-white pt-1 sm:pt-[0.63rem] pb-[0.63rem] sm:pb-4 sm:pl-10 pl-6 overflow-hidden sm:rounded-tr-[0.25rem] sm:rounded-br-[0.25rem]">
-                      <div className="absolute inset-0 right-auto w-0 h-full bg-white" />
-                      <div className="relative text-[3.75rem] sm:text-[4.8rem] font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.23rem]">
-                        Contact
-                      </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  ))}
 
                   <div className="mt-auto text-white pl-6 sm:pl-10 pb-8">
                     <SocialIcons />

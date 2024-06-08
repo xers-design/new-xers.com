@@ -13,7 +13,7 @@ export default function SectionProjects({ homePage }: { homePage: HomePage }) {
             className="w-20 sm:w-[14.25rem] aspect-square"
           />
           <Link href="/projects" className="hidden sm:block">
-            <div className="text-2xl font-medium leading-[1.1] -tracking-[0.06rem] border border-xers-blue rounded-full px-8 py-6 mb-4">
+            <div className="text-2xl font-medium leading-[1.1] -tracking-[0.06rem] text-xers-blue border border-xers-blue rounded-full px-8 py-6 mb-4">
               View All Projects
             </div>
           </Link>
