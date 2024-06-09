@@ -1,7 +1,7 @@
 export default function SocialIcons() {
   return (
     <div className="relative flex gap-3 sm:gap-6">
-      <a target="_black" href="/" className="w-11 aspect-square">
+      <a target="_black" href="/" className="social-icon w-11 aspect-square">
         <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M29.3932 25.4992L30.0771 21.1577H25.8643V18.3358C25.8643 17.1487 26.4524 15.9887 28.3332 15.9887H30.2754V12.2917C29.1444 12.1115 28.0014 12.014 26.8559 12C23.3885 12 21.1248 14.0825 21.1248 17.8474V21.1577H17.2812V25.4992H21.1248V36H25.8643V25.4992H29.3932Z"
@@ -9,7 +9,7 @@ export default function SocialIcons() {
           />
         </svg>
       </a>
-      <a target="_black" href="/" className="w-11 aspect-square">
+      <a target="_black" href="/" className="social-icon w-11 aspect-square">
         <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M12 36L13.7219 29.6031C12.3332 27.1112 11.892 24.2033 12.4793 21.4131C13.0665 18.6229 14.6429 16.1375 16.919 14.413C19.1951 12.6885 22.0184 11.8405 24.8707 12.0248C27.7231 12.209 30.4131 13.413 32.4473 15.4159C34.4815 17.4188 35.7233 20.0862 35.9449 22.9287C36.1665 25.7712 35.353 28.598 33.6537 30.8904C31.9544 33.1829 29.4832 34.7873 26.6937 35.4091C23.9042 36.0309 20.9835 35.6285 18.4675 34.2757L12 36ZM18.7793 31.8819L19.1793 32.1186C21.0017 33.196 23.1303 33.6419 25.2333 33.3867C27.3362 33.1315 29.2955 32.1896 30.8058 30.7077C32.3161 29.2258 33.2925 27.2873 33.5828 25.1941C33.8732 23.101 33.4613 20.9708 32.4112 19.1355C31.3611 17.3003 29.7318 15.8631 27.7774 15.0478C25.8229 14.2326 23.6529 14.0852 21.6056 14.6285C19.5584 15.1719 17.7488 16.3755 16.4589 18.0517C15.169 19.728 14.4713 21.7828 14.4744 23.8959C14.4727 25.648 14.9585 27.3662 15.8778 28.8593L16.1286 29.2717L15.1659 32.8421L18.7793 31.8819Z"
@@ -23,7 +23,7 @@ export default function SocialIcons() {
           />
         </svg>
       </a>
-      <a target="_black" href="/" className="w-11 aspect-square">
+      <a target="_black" href="/" className="social-icon w-11 aspect-square">
         <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             fillRule="evenodd"
@@ -33,7 +33,7 @@ export default function SocialIcons() {
           />
         </svg>
       </a>
-      <a target="_black" href="/" className="w-11 aspect-square">
+      <a target="_black" href="/" className="social-icon w-11 aspect-square">
         <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             fillRule="evenodd"
@@ -43,7 +43,7 @@ export default function SocialIcons() {
           />
         </svg>
       </a>
-      <a target="_black" href="/" className="w-11 aspect-square">
+      <a target="_black" href="/" className="social-icon w-11 aspect-square">
         <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M11.984 34.4108H16.4309V23.6111L10.0781 18.8465V32.505C10.0781 33.5596 10.9326 34.4108 11.984 34.4108Z"
