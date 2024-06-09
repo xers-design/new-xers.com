@@ -1,10 +1,13 @@
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import type { ProjectDetail } from '@/studio/types';
 
 export default function SectionHero({ project }: { project: ProjectDetail }) {
   return (
     <section className="relative aspect-[0.75/1] sm:aspect-auto overflow-hidden text-white">
-      <div className="hidden sm:block absolute inset-0 w-full h-full">
+      <motion.div className="hidden sm:block absolute inset-0 w-full h-full">
         <Image
           src={project.featuredImage.url}
           alt={project.featuredImage.caption}
@@ -12,7 +15,7 @@ export default function SectionHero({ project }: { project: ProjectDetail }) {
           placeholder="blur"
           blurDataURL={project.featuredImage.lqip}
         />
-      </div>
+      </motion.div>
       <div className="sm:hidden absolute inset-0 w-full h-full">
         <Image
           src={project.featuredImageMobile.url}
