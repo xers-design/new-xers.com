@@ -18,7 +18,7 @@ export default function SectionProjects({ homePage }: { homePage: HomePage }) {
             </div>
           </Link>
         </div>
-        <div className="mt-14 sm:mt-[4.5rem] pb-3">
+        <div className="mt-14 sm:mt-[4.5rem] pb-40">
           <div className="text-[3.75rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.32rem] whitespace-nowrap -translate-x-[10%]">
             Designing revolutionary products
           </div>
@@ -26,13 +26,7 @@ export default function SectionProjects({ homePage }: { homePage: HomePage }) {
       </div>
 
       {homePage.projects.map((project, i) => (
-        <div
-          style={{ transform: 'translate3d(0, 0, 0)' }}
-          key={i}
-          className="relative z-20 h-screen grid place-items-center pointer-events-none"
-        >
-          <Project project={project} />
-        </div>
+        <Project key={i} project={project} index={i} />
       ))}
     </section>
   );

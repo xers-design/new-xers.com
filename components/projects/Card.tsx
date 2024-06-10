@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { twMerge as twm } from 'tailwind-merge';
 import type { Project } from '@/studio/types';
 
@@ -33,7 +32,7 @@ export default function Card({ project, shouldReverse }: { project: Project; sho
             </svg>
           </div>
         </div>
-        <motion.div className="overflow-hidden relative rounded-lg sm:rounded-3xl max-w-full aspect-[1.81/1] sm:aspect-auto sm:w-[40rem] sm:h-[22.5rem] shrink-0">
+        <div className="overflow-hidden relative rounded-lg sm:rounded-3xl max-w-full aspect-[1.81/1] sm:aspect-auto sm:w-[40rem] sm:h-[22.5rem] shrink-0">
           <Image
             src={project.cardImage.url}
             alt={project.cardImage.caption}
@@ -41,7 +40,7 @@ export default function Card({ project, shouldReverse }: { project: Project; sho
             blurDataURL={project.cardImage.lqip}
             fill={true}
           />
-        </motion.div>
+        </div>
       </div>
     </Link>
   );
