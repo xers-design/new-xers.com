@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Badge from '@/components/Badge';
 
 export default function SectionServices() {
   return (
@@ -27,11 +28,9 @@ export default function SectionServices() {
           <div className="sm:hidden w-full aspect-[0.61/1] relative overflow-hidden rounded-lg">
             <Image src="/images/services-e2e-mobile.jpg" alt="E2E Product Design Service" fill={true} />
           </div>
-          <img
-            src="/images/badge-agency.svg"
-            alt="Xers Product Design Agency Badge"
-            className="hidden sm:block w-[7.13rem] aspect-square absolute -bottom-10 right-[1.75rem]"
-          />
+          <div className="hidden sm:block w-[7.13rem] aspect-square absolute -bottom-10 right-[1.75rem]">
+            <Badge image="/images/badge-agency.svg" />
+          </div>
         </div>
       </div>
     </section>
