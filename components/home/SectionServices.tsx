@@ -17,10 +17,8 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
       const servicesLength = homePage.services.length;
       const threshold = 1 / servicesLength;
       const newServiceIndex = Math.min(Math.floor(progress / threshold), servicesLength - 1);
-      console.log({ serviceIndex, newServiceIndex });
       if (newServiceIndex !== serviceIndex) setServiceIndex(newServiceIndex);
     });
-
     return unsubscribe;
   }, [serviceIndex]);
 
@@ -29,7 +27,11 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
   }, [serviceIndex]);
 
   return (
-    <motion.section ref={scope} style={{ height: `${homePage.services.length * 100 * 1.2}vh` }} className="relative">
+    <motion.section
+      ref={scope}
+      style={{ height: `${homePage.services.length * 100 * 1.2}vh` }}
+      className="relative hidden sm:block"
+    >
       <div className="sticky top-0">
         <div className="pt-0 sm:pt-[7.5rem] relative">
           <div className="hidden sm:flex items-center gap-4 mb-6 px-14">
@@ -65,18 +67,6 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
                         alt={service.desktopImage.caption}
                         placeholder="blur"
                         blurDataURL={service.desktopImage.lqip}
-                        fill={true}
-                      />
-                    </div>
-                    <div
-                      style={{ aspectRatio: `${service.mobileImage.aspectRatio}/1` }}
-                      className="sm:hidden w-full relative overflow-hidden rounded-lg"
-                    >
-                      <Image
-                        src={service.mobileImage.url}
-                        alt={service.mobileImage.caption}
-                        placeholder="blur"
-                        blurDataURL={service.mobileImage.lqip}
                         fill={true}
                       />
                     </div>

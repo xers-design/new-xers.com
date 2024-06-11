@@ -6,6 +6,7 @@ import SectionHighlights from '@/components/home/SectionHighlights';
 import SectionMeetFounders from '@/components/home/SectionMeetFounders';
 import SectionProjects from '@/components/home/SectionProjects';
 import SectionServices from '@/components/home/SectionServices';
+import SectionServicesMobile from '@/components/home/SectionServicesMobile';
 import SectionProcess from '@/components/home/SectionProcess';
 import SectionDesignDialogues from '@/components/home/SectionDesignDialogues';
 import type { HomePage } from '@/studio/types';
@@ -21,6 +22,7 @@ export default async function Home() {
       <SectionMeetFounders homePage={homePage} />
       <SectionProjects homePage={homePage} />
       <SectionServices homePage={homePage} />
+      <SectionServicesMobile homePage={homePage} />
       <SectionProcess />
       <SectionDesignDialogues homePage={homePage} />
     </>
