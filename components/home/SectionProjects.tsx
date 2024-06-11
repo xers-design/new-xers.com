@@ -6,7 +6,7 @@ import type { HomePage } from '@/studio/types';
 
 export default function SectionProjects({ homePage }: { homePage: HomePage }) {
   return (
-    <section className="h-[calc(300vh+32rem)]">
+    <section className="h-[calc(300dvh+32rem)]">
       <div className="sticky z-10 top-14 overflow-hidden pb-2">
         <div className="padding-global flex items-end justify-center sm:justify-between">
           <div className="w-20 sm:w-[14.25rem] aspect-square">

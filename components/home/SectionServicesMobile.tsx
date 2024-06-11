@@ -71,107 +71,109 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
         </div>
       </div>
 
-      <motion.div
-        initial={{ y: '100%' }}
-        animate={{ y: isInView ? '0%' : '100%' }}
-        transition={SPRING_IN}
-        className="fixed inset-0 top-auto w-full bg-xers-blue text-white flex items-center justify-between"
-      >
-        <motion.button
-          animate={{
-            opacity: isAtFirstService ? 0 : 1,
-            scale: isAtFirstService ? 0 : 1,
-            pointerEvents: isAtFirstService ? 'none' : 'all',
-          }}
-          transition={SPRING_IN}
-          onClick={() => moveService('prev')}
-          className="px-4 py-[0.63rem]"
-        >
-          <div className="w-[1.75rem] aspect-square bg-white bg-opacity-15 grid place-items-center rounded-full">
-            <div className="w-3 aspect-square">
-              <svg width="100%" height="100%" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 12.5V1.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12.5 7L7 1.5L1.5 7"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </motion.button>
-
-        <button
-          onClick={open}
-          className="text-sm leading-[1.5] px-4 py-[0.63rem] flex gap-2 items-center justify-start overflow-hidden"
-        >
-          <div className="bg-white rounded-full text-xers-blue px-2">
-            <span>{currentIndex + 1}</span>/<span>{totalServices}</span>
-          </div>
-          <div className="truncate">Specialized Design Systems</div>
-        </button>
-
-        <motion.button
-          animate={{
-            opacity: isAtLastService ? 0 : 1,
-            scale: isAtLastService ? 0 : 1,
-            pointerEvents: isAtLastService ? 'none' : 'all',
-          }}
-          transition={SPRING_IN}
-          onClick={() => moveService('next')}
-          className="px-4 py-[0.63rem]"
-        >
-          <div className="w-[1.75rem] aspect-square bg-white bg-opacity-15 grid place-items-center rounded-full">
-            <div className="w-3 aspect-square">
-              <svg width="100%" height="100%" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 1.5V12.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12.5 7L7 12.5L1.5 7"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </motion.button>
-
+      <div className="fixed inset-0 h-[100dvh] pointer-events-none">
         <motion.div
-          ref={bottomNavRefTwo}
           initial={{ y: '100%' }}
-          animate={{ y: isOpen ? '0%' : '100%' }}
+          animate={{ y: isInView ? '0%' : '100%' }}
           transition={SPRING_IN}
-          className="fixed inset-0 top-auto w-full bg-xers-blue py-8 flex flex-col items-start gap-6 rounded-tl-[0.63rem] rounded-tr-[0.63rem]"
+          className="absolute inset-0 top-auto w-full bg-xers-blue text-white flex items-center justify-between pointer-events-auto"
         >
-          {homePage.services.map((service, i) => (
-            <button
-              key={i}
-              onClick={() => close(service.title)}
-              className={twm(
-                'text-2xl font-medium leading-[1.1] -tracking-[0.03rem] gap-[0.63rem] truncate border-l-[0.38rem] px-4',
-                service.title === currentService.title ? 'border-white' : 'border-transparent opacity-50'
-              )}
-            >
-              {service.title}
-            </button>
-          ))}
+          <motion.button
+            animate={{
+              opacity: isAtFirstService ? 0 : 1,
+              scale: isAtFirstService ? 0 : 1,
+              pointerEvents: isAtFirstService ? 'none' : 'all',
+            }}
+            transition={SPRING_IN}
+            onClick={() => moveService('prev')}
+            className="px-4 py-[0.63rem]"
+          >
+            <div className="w-[1.75rem] aspect-square bg-white bg-opacity-15 grid place-items-center rounded-full">
+              <div className="w-3 aspect-square">
+                <svg width="100%" height="100%" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7 12.5V1.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M12.5 7L7 1.5L1.5 7"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </motion.button>
+
+          <button
+            onClick={open}
+            className="text-sm leading-[1.5] px-4 py-[0.63rem] flex gap-2 items-center justify-start overflow-hidden"
+          >
+            <div className="bg-white rounded-full text-xers-blue px-2">
+              <span>{currentIndex + 1}</span>/<span>{totalServices}</span>
+            </div>
+            <div className="truncate">Specialized Design Systems</div>
+          </button>
+
+          <motion.button
+            animate={{
+              opacity: isAtLastService ? 0 : 1,
+              scale: isAtLastService ? 0 : 1,
+              pointerEvents: isAtLastService ? 'none' : 'all',
+            }}
+            transition={SPRING_IN}
+            onClick={() => moveService('next')}
+            className="px-4 py-[0.63rem]"
+          >
+            <div className="w-[1.75rem] aspect-square bg-white bg-opacity-15 grid place-items-center rounded-full">
+              <div className="w-3 aspect-square">
+                <svg width="100%" height="100%" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7 1.5V12.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M12.5 7L7 12.5L1.5 7"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </motion.button>
+
+          <motion.div
+            ref={bottomNavRefTwo}
+            initial={{ y: '100%' }}
+            animate={{ y: isOpen ? '0%' : '100%' }}
+            transition={SPRING_IN}
+            className="fixed inset-0 top-auto w-full bg-xers-blue py-8 flex flex-col items-start gap-6 rounded-tl-[0.63rem] rounded-tr-[0.63rem]"
+          >
+            {homePage.services.map((service, i) => (
+              <button
+                key={i}
+                onClick={() => close(service.title)}
+                className={twm(
+                  'text-2xl font-medium leading-[1.1] -tracking-[0.03rem] gap-[0.63rem] truncate border-l-[0.38rem] px-4',
+                  service.title === currentService.title ? 'border-white' : 'border-transparent opacity-50'
+                )}
+              >
+                {service.title}
+              </button>
+            ))}
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.section>
   );
 }
