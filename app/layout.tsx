@@ -3,6 +3,7 @@ import font from 'next/font/local';
 import { twMerge as twm } from 'tailwind-merge';
 import Navbar from '@/components/Navbar';
 import SectionGetInTouch from '@/components/GetInTouch';
+import SmoothScroll from '@/components/SmoothScroll';
 
 import './globals.css';
 
@@ -42,11 +43,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={twm(`${generalSans.variable}`)}>
-      <body className={generalSans.className}>
-        <Navbar />
-        <main>{children}</main>
-        <SectionGetInTouch />
+    <html lang="en" className={generalSans.variable}>
+      <body className={twm(generalSans.className, 'bg-white overflow-hidden')}>
+        <SmoothScroll>
+          <>
+            <Navbar />
+            <main>{children}</main>
+            <SectionGetInTouch />
+          </>
+        </SmoothScroll>
       </body>
     </html>
   );
