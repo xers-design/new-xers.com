@@ -20,7 +20,7 @@ export default async function Home() {
       <SectionHighlights homePage={homePage} />
       <SectionMeetFounders homePage={homePage} />
       <SectionProjects homePage={homePage} />
-      <SectionServices />
+      <SectionServices homePage={homePage} />
       <SectionProcess />
       <SectionDesignDialogues homePage={homePage} />
     </>

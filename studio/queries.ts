@@ -153,6 +153,22 @@ export const homePageQuery = groq`
         "aspectRatio": homeCardImage.image.asset->metadata.dimensions.aspectRatio
       }
     },
+    services[]{
+      title,
+      description,
+      "desktopImage": {
+        "url": desktopImage.image.asset->url,
+        "lqip": desktopImage.image.asset->metadata.lqip,
+        "caption": desktopImage.caption,
+        "aspectRatio": desktopImage.image.asset->metadata.dimensions.aspectRatio
+      },
+      "mobileImage": {
+        "url": mobileImage.image.asset->url,
+        "lqip": mobileImage.image.asset->metadata.lqip,
+        "caption": mobileImage.caption,
+        "aspectRatio": mobileImage.image.asset->metadata.dimensions.aspectRatio
+      }
+    },
     "videoTwo": {
       "caption": videoTwo.caption,
       "url": videoTwo.video.asset->url,

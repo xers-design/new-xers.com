@@ -133,12 +133,20 @@ export interface ProjectDetail {
   };
 }
 
+export interface Service {
+  title: string;
+  description: string;
+  desktopImage: Image;
+  mobileImage: Image;
+}
+
 export interface HomePage {
   _updatedAt: string;
   logos: Image[];
   isActive: boolean;
   videoTwo: Video;
   projects: Project[];
+  services: Service[];
   videoOne: Video;
   highlights: Highlight[];
   _createdAt: string;

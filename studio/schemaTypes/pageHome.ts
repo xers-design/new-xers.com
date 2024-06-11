@@ -43,6 +43,39 @@ export default defineType({
       of: [{ type: 'reference', to: [{ type: 'project' }] }],
     },
     {
+      name: 'services',
+      title: 'Services',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'text',
+            },
+            {
+              name: 'desktopImage',
+              title: 'Desktop Image',
+              type: 'customImage',
+            },
+            {
+              name: 'mobileImage',
+              title: 'Mobile Image',
+              type: 'customImage',
+            },
+          ],
+        },
+      ],
+      validation: (r) => r.required(),
+    },
+    {
       name: 'videoTwo',
       title: 'Video Two',
       type: 'video',
