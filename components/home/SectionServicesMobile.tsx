@@ -44,8 +44,7 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
 
   // this is the whole section
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef);
-  // const isInView = useInView(sectionRef, { margin: '-90% 0px -50% 0px' }); // not works in Safari with margin % option
+  const isInView = useInView(sectionRef, { margin: '-50%' }); // not works in Safari with multiple margin % option
 
   // this is the part when the middle text is clicked
   const bottomNavRefTwo = useRef(null);
