@@ -44,7 +44,8 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
 
   // this is the whole section
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { margin: '-90% 0px -50% 0px' });
+  const isInView = useInView(sectionRef);
+  // const isInView = useInView(sectionRef, { margin: '-90% 0px -50% 0px' }); // not works in Safari with margin % option
 
   // this is the part when the middle text is clicked
   const bottomNavRefTwo = useRef(null);
@@ -73,8 +74,8 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
 
       <div className="fixed inset-0 h-[100dvh] pointer-events-none">
         <motion.div
-          initial={{ y: '100%' }}
-          animate={{ y: isInView ? '0%' : '100%' }}
+          initial={{ y: '100%', opacity: 0 }}
+          animate={{ y: isInView ? '0%' : '100%', opacity: isInView ? 1 : 0 }}
           transition={SPRING_IN}
           className="absolute inset-0 top-auto w-full bg-xers-blue text-white flex items-center justify-between pointer-events-auto"
         >
@@ -154,10 +155,10 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
 
           <motion.div
             ref={bottomNavRefTwo}
-            initial={{ y: '100%' }}
-            animate={{ y: isOpen ? '0%' : '100%' }}
+            initial={{ y: '100%', opacity: 0 }}
+            animate={{ y: isOpen ? '0%' : '100%', opacity: isOpen ? 1 : 0 }}
             transition={SPRING_IN}
-            className="fixed inset-0 top-auto w-full bg-xers-blue py-8 flex flex-col items-start gap-6 rounded-tl-[0.63rem] rounded-tr-[0.63rem]"
+            className="fixed inset-0 h-40 top-auto w-full bg-xers-blue py-8 flex flex-col items-start gap-6 rounded-tl-[0.63rem] rounded-tr-[0.63rem]"
           >
             {homePage.services.map((service, i) => (
               <button

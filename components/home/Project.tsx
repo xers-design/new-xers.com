@@ -16,7 +16,7 @@ export default function Project({ project, index }: { project: Project; index: n
     <div
       ref={ref}
       style={{ transform: 'translate3d(0, 0, 0)' }}
-      className="sticky top-0 sm:relative z-20 h-[100dvh] grid place-items-center pointer-events-none overflow-hidden"
+      className="sticky top-0 sm:relative z-20 h-screen grid place-items-center pointer-events-none overflow-hidden"
     >
       <Link href={`/projects/${project.slug.current}`} className="pointer-events-auto">
         <motion.div style={{ rotate }} className="w-[16.25rem] sm:w-[25rem] grid gap-2">
