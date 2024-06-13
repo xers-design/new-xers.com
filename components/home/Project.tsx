@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRef } from 'react';
+import { useScreen } from 'usehooks-ts';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import type { Project } from '@/studio/types';
 
@@ -10,7 +11,9 @@ export default function Project({ project, index }: { project: Project; index: n
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const isEven = (index + 1) % 2 === 0;
-  const rotate = useTransform(scrollYProgress, [0, 1], isEven ? [20, -20] : [-20, 20]);
+  const screen = useScreen();
+  const isMobile = screen?.width <= 640;
+  const rotate = useTransform(scrollYProgress, [0, 1], isEven ? [20, isMobile ? -23 : -20] : [-20, isMobile ? 23 : 20]);
 
   return (
     <div

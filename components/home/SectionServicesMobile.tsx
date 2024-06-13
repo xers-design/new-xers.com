@@ -157,14 +157,14 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
             initial={{ y: '100%', opacity: 0 }}
             animate={{ y: isOpen ? '0%' : '100%', opacity: isOpen ? 1 : 0 }}
             transition={SPRING_IN}
-            className="fixed inset-0 h-40 top-auto w-full bg-xers-blue py-8 flex flex-col items-start gap-6 rounded-tl-[0.63rem] rounded-tr-[0.63rem]"
+            className="fixed inset-0 top-auto w-full bg-xers-blue py-8 flex flex-col items-start gap-6 rounded-tl-[0.63rem] rounded-tr-[0.63rem]"
           >
             {homePage.services.map((service, i) => (
               <button
                 key={i}
                 onClick={() => close(service.title)}
                 className={twm(
-                  'text-2xl font-medium leading-[1.1] -tracking-[0.03rem] gap-[0.63rem] truncate border-l-[0.38rem] px-4',
+                  'w-full text-left text-2xl font-medium leading-[1.1] -tracking-[0.03rem] gap-[0.63rem] truncate border-l-[0.38rem] px-4',
                   service.title === currentService.title ? 'border-white' : 'border-transparent opacity-50'
                 )}
               >
