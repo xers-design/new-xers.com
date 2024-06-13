@@ -10,7 +10,7 @@ import 'swiper/css/free-mode';
 
 export default function SectionLogos({ homePage }: { homePage: HomePage }) {
   return (
-    <section>
+    <section id="logos">
       <Swiper
         slidesPerView="auto"
         spaceBetween={20}

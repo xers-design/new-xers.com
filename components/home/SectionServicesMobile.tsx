@@ -164,7 +164,7 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
                 key={i}
                 onClick={() => close(service.title)}
                 className={twm(
-                  'w-full text-left text-2xl font-medium leading-[1.1] -tracking-[0.03rem] gap-[0.63rem] truncate border-l-[0.38rem] px-4',
+                  'w-full text-left text-2xl font-medium leading-[1.2] -tracking-[0.03rem] gap-[0.63rem] truncate border-l-[0.38rem] px-4',
                   service.title === currentService.title ? 'border-white' : 'border-transparent opacity-50'
                 )}
               >
