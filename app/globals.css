@@ -56,3 +56,14 @@ body {
 .rich-text {
   @apply flex flex-col gap-4 text-sm leading-tight sm:text-base [&>h2]:font-black [&>h2]:text-2xl sm:[&>h2]:text-[2rem] [&>h3]:font-black [&>h3]:text-lg sm:[&>h3]:text-xl;
 }
+
+.str-line {
+  transform: translateY(120%);
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition-delay: calc(var(--str-line-index) * 0.1s);
+}
+
+/* .line [data-animated='true'] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+} */

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import TakeARideButton from '@/components/home/TakeARideButton';
+import AnimatedText from '@/components/AnimatedText';
 
 export default function SectionHero() {
   return (
@@ -22,9 +23,11 @@ export default function SectionHero() {
       <div className="relative padding-global pt-[8.38rem] sm:pt-44 pb-14 sm:pb-[7.5rem]">
         <div>
           <h1 className="text-[3.75rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.32rem]">
-            We flourish your digital
-            <span className="text-xers-purple"> vision</span> into
-            <span className="text-xers-green"> reality</span>.
+            <AnimatedText className="pb-1 sm:pb-3">
+              We flourish your digital
+              <span className="text-xers-purple"> vision</span> into
+              <span className="text-xers-green"> reality</span>.
+            </AnimatedText>
           </h1>
         </div>
         <div className="flex items-center justify-between mt-8 sm:mt-20">
@@ -33,6 +36,7 @@ export default function SectionHero() {
               <div className="text-xl sm:text-2xl font-medium ml-2 sm:ml-4 -tracking-[0.025rem] sm:-tracking-[0.03rem]">
                 Contact us
               </div>
+
               <div className="w-10 sm:w-16 aspect-square rounded-full bg-xers-blue grid place-items-center">
                 <div className="w-6 aspect-square hidden sm:block">
                   <svg width="100%" height="100%" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">

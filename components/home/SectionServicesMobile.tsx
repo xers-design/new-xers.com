@@ -6,6 +6,7 @@ import { motion, useInView } from 'framer-motion';
 import { useOnClickOutside } from 'usehooks-ts';
 import { twMerge as twm } from 'tailwind-merge';
 import { SPRING_IN } from '@/lib/animations/constants';
+import AnimatedText from '@/components/AnimatedText';
 import type { Dispatch, SetStateAction } from 'react';
 import type { HomePage, Service } from '@/studio/types';
 
@@ -197,9 +198,11 @@ function Service({ service, setCurrentService }: ServiceProps) {
     <div id={service.title} ref={ref} className="relative px-6 grow !min-w-full">
       <div className="">
         <h3 className="max-w-[20rem] sm:max-w-full text-[2.5rem] sm:text-7xl font-medium leading-[1.1] -tracking-[0.1rem] sm:-tracking-[0.18rem] mb-6">
-          {service.title}
+          <AnimatedText>{service.title}</AnimatedText>
         </h3>
-        <p className="text-lg sm:text-2xl font-normal leading-[1.5] max-w-[58.7rem] mb-8">{service.description}</p>
+        <div className="text-lg sm:text-2xl font-normal leading-[1.5] max-w-[58.7rem] mb-8">
+          <AnimatedText>{service.description}</AnimatedText>
+        </div>
       </div>
 
       <div className="relative">

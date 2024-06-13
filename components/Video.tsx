@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import Player from 'next-video/player';
 import { useOnClickOutside } from 'usehooks-ts';
+import AnimatedText from '@/components/AnimatedText';
 import type { Video } from '@/studio/types';
 
 export default function Video({ video }: { video: Video }) {
@@ -68,7 +69,7 @@ export default function Video({ video }: { video: Video }) {
           <>
             <div className="absolute inset-0 top-auto h-[4.5rem] sm:h-[18.45rem] bg-gradient-to-t from-xers-blue to-transparent" />
             <h2 className="absolute bottom-4 sm:bottom-14 left-1/2 -translate-x-1/2 text-xl sm:text-[5.25rem] font-medium leading-[1.1] -tracking-[0.05rem] sm:-tracking-[0.21rem] text-white text-center w-full">
-              Meet the founders of xers
+              <AnimatedText>{video.caption}</AnimatedText>
             </h2>
           </>
         )}

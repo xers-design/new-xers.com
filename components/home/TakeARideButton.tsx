@@ -28,7 +28,6 @@ export default function TakeARideButton() {
       ],
       { repeat: Infinity, duration: 2 }
     );
-    console.log('reach');
   }, []);
 
   return (

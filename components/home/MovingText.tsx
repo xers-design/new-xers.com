@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Autoplay } from 'swiper/modules';
 import { twMerge as twm } from 'tailwind-merge';
+import AnimatedText from '@/components/AnimatedText';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -37,7 +38,7 @@ export default function MovingText() {
                 word.color
               )}
             >
-              {word.text}
+              <AnimatedText className="pb-3">{word.text}</AnimatedText>
             </div>
           </SwiperSlide>
         ))}
@@ -49,7 +50,7 @@ export default function MovingText() {
                 word.color
               )}
             >
-              {word.text}
+              <AnimatedText className="pb-3">{word.text}</AnimatedText>
             </div>
           </SwiperSlide>
         ))}

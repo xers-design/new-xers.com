@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { useScreen } from 'usehooks-ts';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import AnimatedText from '@/components/AnimatedText';
 import type { Project } from '@/studio/types';
 
 export default function Project({ project, index }: { project: Project; index: number }) {
@@ -14,6 +15,7 @@ export default function Project({ project, index }: { project: Project; index: n
   const screen = useScreen();
   const isMobile = screen?.width <= 640;
   const rotate = useTransform(scrollYProgress, [0, 1], isEven ? [20, isMobile ? -23 : -20] : [-20, isMobile ? 23 : 20]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
 
   return (
     <div
@@ -24,19 +26,23 @@ export default function Project({ project, index }: { project: Project; index: n
       <Link href={`/projects/${project.slug.current}`} className="pointer-events-auto">
         <motion.div style={{ rotate }} className="w-[16.25rem] sm:w-[25rem] grid gap-2">
           <div className="w-full aspect-square overflow-hidden rounded-xl relative">
-            <Image
-              src={project.homeCardImage.url}
-              alt={project.homeCardImage.caption}
-              placeholder="blur"
-              blurDataURL={project.homeCardImage.lqip}
-              fill={true}
-            />
+            <motion.div style={{ scale }} className="absolute inset-0">
+              <Image
+                src={project.homeCardImage.url}
+                alt={project.homeCardImage.caption}
+                placeholder="blur"
+                blurDataURL={project.homeCardImage.lqip}
+                fill={true}
+              />
+            </motion.div>
           </div>
           <div className="grid gap-2 pl-6 pr-4 sm:pl-8 sm:pr-8 py-6 bg-xers-purple text-white rounded-xl">
             <div className="text-[2rem] sm:text-5xl font-medium leading-[1.1] -tracking-[0.08rem] sm:-tracking-[0.12rem]">
-              {project.name}
+              <AnimatedText>{project.name}</AnimatedText>
             </div>
-            <div className="text-lg sm:text-2xl font-normal leading-[1.5]">{project.description}</div>
+            <div className="text-lg sm:text-2xl font-normal leading-[1.5]">
+              <AnimatedText>{project.description}</AnimatedText>
+            </div>
           </div>
         </motion.div>
       </Link>

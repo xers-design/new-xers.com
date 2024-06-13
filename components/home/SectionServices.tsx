@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { motion, useScroll, useAnimate } from 'framer-motion';
 import Badge from '@/components/Badge';
 import { SPRING_OUT } from '@/lib/animations/constants';
+import AnimatedText from '@/components/AnimatedText';
 import type { HomePage } from '@/studio/types';
 
 export default function SectionServices({ homePage }: { homePage: HomePage }) {
@@ -35,7 +36,9 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
       <div className="sticky top-0">
         <div className="pt-0 sm:pt-[7.5rem] relative">
           <div className="hidden sm:flex items-center gap-4 mb-6 px-14">
-            <h2 className="text-2xl font-medium leading-[1.1] -tracking-[0.03rem]">Services</h2>
+            <h2 className="text-2xl font-medium leading-[1.1] -tracking-[0.03rem]">
+              <AnimatedText>Services</AnimatedText>
+            </h2>
             <div className="relative w-[13.75rem] h-1 rounded-full bg-xers-cloudy-blue overflow-hidden">
               <motion.div
                 style={{ scaleX: scrollYProgress }}
@@ -50,11 +53,11 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
                 <div key={i} className="relative px-14 grow !min-w-full">
                   <div className="">
                     <h3 className="max-w-[20rem] sm:max-w-full text-[2.5rem] sm:text-7xl font-medium leading-[1.1] -tracking-[0.1rem] sm:-tracking-[0.18rem] mb-6">
-                      {service.title}
+                      <AnimatedText className="pb-2">{service.title}</AnimatedText>
                     </h3>
-                    <p className="text-lg sm:text-2xl font-normal leading-[1.5] max-w-[58.7rem] mb-16">
-                      {service.description}
-                    </p>
+                    <div className="text-lg sm:text-2xl font-normal leading-[1.5] max-w-[58.7rem] mb-16">
+                      <AnimatedText>{service.description}</AnimatedText>
+                    </div>
                   </div>
 
                   <div className="relative">
