@@ -6,6 +6,7 @@ import { motion, useScroll, useAnimate } from 'framer-motion';
 import Badge from '@/components/Badge';
 import { SPRING_OUT } from '@/lib/animations/constants';
 import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
 import type { HomePage } from '@/studio/types';
 
 export default function SectionServices({ homePage }: { homePage: HomePage }) {
@@ -39,12 +40,14 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
             <h2 className="text-2xl font-medium leading-[1.1] -tracking-[0.03rem]">
               <AnimatedText>Services</AnimatedText>
             </h2>
-            <div className="relative w-[13.75rem] h-1 rounded-full bg-xers-cloudy-blue overflow-hidden">
-              <motion.div
-                style={{ scaleX: scrollYProgress }}
-                className="absolute inset-0 right-auto w-full h-full bg-black origin-left"
-              />
-            </div>
+            <FadeUp>
+              <div className="relative w-[13.75rem] h-1 rounded-full bg-xers-cloudy-blue overflow-hidden">
+                <motion.div
+                  style={{ scaleX: scrollYProgress }}
+                  className="absolute inset-0 right-auto w-full h-full bg-black origin-left"
+                />
+              </div>
+            </FadeUp>
           </div>
 
           <div className="overflow-hidden flex">
@@ -60,20 +63,22 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
                     </div>
                   </div>
 
-                  <div className="relative">
-                    <div
-                      style={{ aspectRatio: `${service.desktopImage.aspectRatio}/1` }}
-                      className="hidden sm:block w-full relative overflow-hidden rounded-xl"
-                    >
-                      <Image
-                        src={service.desktopImage.url}
-                        alt={service.desktopImage.caption}
-                        placeholder="blur"
-                        blurDataURL={service.desktopImage.lqip}
-                        fill={true}
-                      />
+                  <FadeUp>
+                    <div className="relative">
+                      <div
+                        style={{ aspectRatio: `${service.desktopImage.aspectRatio}/1` }}
+                        className="hidden sm:block w-full relative overflow-hidden rounded-xl"
+                      >
+                        <Image
+                          src={service.desktopImage.url}
+                          alt={service.desktopImage.caption}
+                          placeholder="blur"
+                          blurDataURL={service.desktopImage.lqip}
+                          fill={true}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  </FadeUp>
                 </div>
               ))}
             </div>

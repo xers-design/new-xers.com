@@ -1,4 +1,5 @@
 import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
 
 export default function SectionProcess() {
   return (
@@ -15,11 +16,13 @@ export default function SectionProcess() {
                   <AnimatedText>We’ve experienced how to design the experience for thousands of users.</AnimatedText>
                 </div>
               </div>
-              <img
-                src="/images/process.svg"
-                alt=""
-                className="mt-24 mb-12 min-w-[57.5rem] -translate-x-[8.4rem] -rotate-[15deg]"
-              />
+              <FadeUp>
+                <img
+                  src="/images/process.svg"
+                  alt=""
+                  className="mt-24 mb-12 min-w-[57.5rem] -translate-x-[8.4rem] -rotate-[15deg]"
+                />
+              </FadeUp>
             </div>
 
             <div className="sm:ml-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -27,11 +30,13 @@ export default function SectionProcess() {
                 <h3 className="text-[2rem] sm:text-5xl font-medium leading-[1.1] -tracking-[0.08rem] sm:-tracking-[0.12rem]">
                   <AnimatedText>Know</AnimatedText>
                 </h3>
-                <img
-                  src="/images/process-know.svg"
-                  alt=""
-                  className="w-[5.06rem] sm:w-[6.75rem] h-[4.88rem] sm:h-[6.5rem]"
-                />
+                <FadeUp>
+                  <img
+                    src="/images/process-know.svg"
+                    alt=""
+                    className="w-[5.06rem] sm:w-[6.75rem] h-[4.88rem] sm:h-[6.5rem]"
+                  />
+                </FadeUp>
                 <div className="text-lg font-normal leading-[1.5]">
                   <AnimatedText>
                     Let’s together delve into user segments, define clear product objectives, and streamline your
@@ -44,11 +49,13 @@ export default function SectionProcess() {
                 <h3 className="text-[2rem] sm:text-5xl font-medium leading-[1.1] -tracking-[0.08rem] sm:-tracking-[0.12rem]">
                   <AnimatedText>Explore</AnimatedText>
                 </h3>
-                <img
-                  src="/images/process-explore.svg"
-                  alt=""
-                  className="w-[4.78rem] sm:w-[6.38rem] h-[4.78rem] sm:h-[6.38rem]"
-                />
+                <FadeUp>
+                  <img
+                    src="/images/process-explore.svg"
+                    alt=""
+                    className="w-[4.78rem] sm:w-[6.38rem] h-[4.78rem] sm:h-[6.38rem]"
+                  />
+                </FadeUp>
                 <div className="text-lg font-normal leading-[1.5]">
                   <AnimatedText>
                     No beat around the bush. Will examine and explore all solutions that profits your business and offer
@@ -61,11 +68,13 @@ export default function SectionProcess() {
                 <h3 className="text-[2rem] sm:text-5xl font-medium leading-[1.1] -tracking-[0.08rem] sm:-tracking-[0.12rem]">
                   <AnimatedText>Build</AnimatedText>
                 </h3>
-                <img
-                  src="/images/process-build.svg"
-                  alt=""
-                  className="w-[4.31rem] sm:w-[5.75rem] h-[4.78rem] sm:h-[6.38rem]"
-                />
+                <FadeUp>
+                  <img
+                    src="/images/process-build.svg"
+                    alt=""
+                    className="w-[4.31rem] sm:w-[5.75rem] h-[4.78rem] sm:h-[6.38rem]"
+                  />
+                </FadeUp>
                 <div className="text-lg font-normal leading-[1.5]">
                   <AnimatedText>
                     Rapid prototyping is in our blood. We build living and breathing prototype in hours that are fully
@@ -78,11 +87,13 @@ export default function SectionProcess() {
                 <h3 className="text-[2rem] sm:text-5xl font-medium leading-[1.1] -tracking-[0.08rem] sm:-tracking-[0.12rem]">
                   <AnimatedText>Test</AnimatedText>
                 </h3>
-                <img
-                  src="/images/process-test.svg"
-                  alt=""
-                  className="w-[3.84rem] sm:w-[5.13rem] h-[4.78rem] sm:h-[6.38rem]"
-                />
+                <FadeUp>
+                  <img
+                    src="/images/process-test.svg"
+                    alt=""
+                    className="w-[3.84rem] sm:w-[5.13rem] h-[4.78rem] sm:h-[6.38rem]"
+                  />
+                </FadeUp>
                 <div className="text-lg font-normal leading-[1.5]">
                   <AnimatedText>
                     Most exciting! we win early or we learn early. Let’s be sure that we give users best value.

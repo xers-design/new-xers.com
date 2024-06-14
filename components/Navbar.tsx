@@ -9,13 +9,16 @@ import SocialIcons from '@/components/SocialIcons';
 import NavLink from '@/components/NavLink';
 import { openSequence, closeSequence } from '@/lib/animations/navbar';
 import { SPRING_IN } from '@/lib/animations/constants';
+import { useSmoothScroll } from '@/components/SmoothScroll';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scope, animate] = useAnimate();
+  const { startScroll, stopScroll } = useSmoothScroll();
 
   useEffect(() => {
     isOpen ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset');
+    isOpen ? stopScroll() : startScroll();
     animate(isOpen ? openSequence : closeSequence);
   }, [isOpen]);
 

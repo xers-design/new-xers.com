@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import type { HomePage } from '@/studio/types';
 import Video from '@/components/Video';
+import type { HomePage } from '@/studio/types';
 
 export default function SectionMeetFounders({ homePage }: { homePage: HomePage }) {
   return (

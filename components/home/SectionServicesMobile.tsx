@@ -7,6 +7,7 @@ import { useOnClickOutside } from 'usehooks-ts';
 import { twMerge as twm } from 'tailwind-merge';
 import { SPRING_IN } from '@/lib/animations/constants';
 import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
 import type { Dispatch, SetStateAction } from 'react';
 import type { HomePage, Service } from '@/studio/types';
 
@@ -205,20 +206,22 @@ function Service({ service, setCurrentService }: ServiceProps) {
         </div>
       </div>
 
-      <div className="relative">
-        <div
-          style={{ aspectRatio: `${service.mobileImage.aspectRatio}/1` }}
-          className="sm:hidden w-full relative overflow-hidden rounded-lg"
-        >
-          <Image
-            src={service.mobileImage.url}
-            alt={service.mobileImage.caption}
-            placeholder="blur"
-            blurDataURL={service.mobileImage.lqip}
-            fill={true}
-          />
+      <FadeUp>
+        <div className="relative">
+          <div
+            style={{ aspectRatio: `${service.mobileImage.aspectRatio}/1` }}
+            className="sm:hidden w-full relative overflow-hidden rounded-lg"
+          >
+            <Image
+              src={service.mobileImage.url}
+              alt={service.mobileImage.caption}
+              placeholder="blur"
+              blurDataURL={service.mobileImage.lqip}
+              fill={true}
+            />
+          </div>
         </div>
-      </div>
+      </FadeUp>
     </div>
   );
 }

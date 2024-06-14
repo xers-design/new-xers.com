@@ -16,7 +16,6 @@ export default function AnimatedText({ children, className = '' }: AnimatedTextP
   const { scope, getScopedElements } = useSplitText();
 
   useEffect(() => {
-    console.log(transformClass(className));
     const { lines } = getScopedElements();
     if (!lines || lines.length === 0) return;
 
