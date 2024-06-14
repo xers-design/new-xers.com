@@ -31,7 +31,7 @@ export default function GetInTouch() {
           />
           <h2 className="relative text-5xl sm:text-[5.25rem] font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.21rem] max-w-[40rem]">
             {/* Let’s get in touch with us */}
-            <AnimatedText>Let’s get in touch with us</AnimatedText>
+            <AnimatedText className="pb-1">Let’s get in touch with us</AnimatedText>
           </h2>
           <form className="relative mt-14 flex flex-col gap-4 items-start max-w-[39.5rem] w-full">
             <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">

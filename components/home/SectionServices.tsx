@@ -34,7 +34,7 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
       className="relative hidden sm:block"
     >
       <div className="sticky top-0">
-        <div className="pt-0 sm:pt-[7.5rem] relative">
+        <div className="pt-0 sm:pt-14 relative">
           <div className="hidden sm:flex items-center gap-4 mb-6 px-14">
             <h2 className="text-2xl font-medium leading-[1.1] -tracking-[0.03rem]">
               <AnimatedText>Services</AnimatedText>

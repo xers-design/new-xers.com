@@ -16,15 +16,13 @@ export default function AnimatedText({ children, className = '' }: AnimatedTextP
   const { scope, getScopedElements } = useSplitText();
 
   useEffect(() => {
+    console.log(transformClass(className));
     const { lines } = getScopedElements();
     if (!lines || lines.length === 0) return;
 
     if (isInView) {
       animate('.str-line', { y: '0%' });
     }
-    // else {
-    //   animate('.str-line', { y: '120%' });
-    // }
   }, [isInView]);
 
   return (
@@ -34,10 +32,20 @@ export default function AnimatedText({ children, className = '' }: AnimatedTextP
         aria-hidden
         ref={scope}
         mode={['line']}
-        options={{ line: { wrapper: true, wrapperProps: { className } } }}
+        options={{ line: { wrapper: true, wrapperProps: { className: transformClass(className) } } }}
       >
         {children}
       </SplitText>
     </div>
   );
+}
+
+function transformClass(input: string) {
+  return input
+    .split(' ')
+    .map((cls) => {
+      const match = cls.match(/^(\S+:)?pb-(\d+)$/);
+      return match ? `${cls} ${match[1] || ''}-mb-${match[2]}` : cls;
+    })
+    .join(' ');
 }
