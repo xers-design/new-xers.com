@@ -35,80 +35,94 @@ export default function GetInTouch() {
               {/* Let’s get in touch with us */}
               <AnimatedText className="pb-1">Let’s get in touch with us</AnimatedText>
             </h2>
-            <form className="relative mt-14 flex flex-col gap-4 items-start max-w-[39.5rem] w-full">
-              <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">
-                <label
-                  htmlFor="name"
-                  className="text-xs sm:text-xl font-medium leading-[1] -tracking-[0.015rem] sm:-tracking-[0.025rem]"
-                >
-                  May we know your name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="John Doe"
-                  className="w-full appearance-none leading-[1] bg-transparent outline-none text-lg -tracking-[0.0225rem] sm:-tracking-[0.04rem] sm:text-[2rem] font-medium placeholder:text-white placeholder:opacity-[0.12]"
-                />
-              </div>
-              <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">
-                <label
-                  htmlFor="email"
-                  className="text-xs sm:text-xl font-medium leading-[1] -tracking-[0.015rem] sm:-tracking-[0.025rem]"
-                >
-                  Your email address
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="john@domain.com"
-                  className="w-full appearance-none leading-[1] bg-transparent outline-none text-lg -tracking-[0.0225rem] sm:-tracking-[0.04rem] sm:text-[2rem] font-medium placeholder:text-white placeholder:opacity-[0.12]"
-                />
-              </div>
-              <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">
-                <label
-                  htmlFor="message"
-                  className="text-xs sm:text-xl font-medium leading-[1] -tracking-[0.015rem] sm:-tracking-[0.025rem]"
-                >
-                  What do you want to discuss about?
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  className="w-full appearance-none h-[8.8rem] leading-[1] bg-transparent outline-none text-lg -tracking-[0.0225rem] sm:-tracking-[0.04rem] sm:text-[2rem] font-medium"
-                />
-              </div>
-              <button className="w-full sm:w-auto bg-xers-blue rounded-full p-4 flex items-center justify-between gap-5 sm:gap-[5.3rem] mt-4">
-                <div className="text-xl sm:text-2xl font-medium ml-2 sm:ml-4 -tracking-[0.025rem] sm:-tracking-[0.03rem]">
-                  Submit contact form
+            <FadeUp>
+              <form className="relative mt-14 flex flex-col gap-4 items-start max-w-[39.5rem] w-full">
+                <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">
+                  <label
+                    htmlFor="name"
+                    className="text-xs sm:text-xl font-medium leading-[1] -tracking-[0.015rem] sm:-tracking-[0.025rem]"
+                  >
+                    May we know your name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="John Doe"
+                    className="w-full appearance-none leading-[1] bg-transparent outline-none text-lg -tracking-[0.0225rem] sm:-tracking-[0.04rem] sm:text-[2rem] font-medium placeholder:text-white placeholder:opacity-[0.12]"
+                  />
                 </div>
-                <div className="w-10 sm:w-16 aspect-square rounded-full bg-white text-xers-blue grid place-items-center">
-                  <div className="w-6 aspect-square hidden sm:block">
-                    <svg width="100%" height="100%" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M2 14H26M26 14L14 2M26 14L14 26"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div className="w-4 aspect-square sm:hidden">
-                    <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M2 10H18M18 10L10 2M18 10L10 18"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
+                <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">
+                  <label
+                    htmlFor="email"
+                    className="text-xs sm:text-xl font-medium leading-[1] -tracking-[0.015rem] sm:-tracking-[0.025rem]"
+                  >
+                    Your email address
+                  </label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="john@domain.com"
+                    className="w-full appearance-none leading-[1] bg-transparent outline-none text-lg -tracking-[0.0225rem] sm:-tracking-[0.04rem] sm:text-[2rem] font-medium placeholder:text-white placeholder:opacity-[0.12]"
+                  />
                 </div>
-              </button>
-            </form>
+                <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">
+                  <label
+                    htmlFor="message"
+                    className="text-xs sm:text-xl font-medium leading-[1] -tracking-[0.015rem] sm:-tracking-[0.025rem]"
+                  >
+                    What do you want to discuss about?
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    className="w-full appearance-none h-[8.8rem] leading-[1] bg-transparent outline-none text-lg -tracking-[0.0225rem] sm:-tracking-[0.04rem] sm:text-[2rem] font-medium"
+                  />
+                </div>
+                <button className="w-full sm:w-auto bg-xers-blue rounded-full p-4 flex items-center justify-between gap-5 sm:gap-[5.3rem] mt-4">
+                  <div className="text-xl sm:text-2xl font-medium ml-2 sm:ml-4 -tracking-[0.025rem] sm:-tracking-[0.03rem]">
+                    Submit contact form
+                  </div>
+                  <div className="w-10 sm:w-16 aspect-square rounded-full bg-white text-xers-blue grid place-items-center">
+                    <div className="w-6 aspect-square hidden sm:block">
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 28 28"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2 14H26M26 14L14 2M26 14L14 26"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div className="w-4 aspect-square sm:hidden">
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2 10H18M18 10L10 2M18 10L10 18"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              </form>
+            </FadeUp>
             <div className="mt-16 hidden sm:flex justify-end">
               <SocialIcons />
             </div>

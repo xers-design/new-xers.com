@@ -25,13 +25,11 @@ export default function SectionDesignDialogues({ homePage }: { homePage: HomePag
             <Video video={homePage.videoTwo} />
           </div>
 
-          <FadeUp>
-            <img
-              src="/images/design-dialogues.svg"
-              alt="Design Dialogues"
-              className="absolute top-0 right-0 sm:static sm:mt-[10rem] w-[4.56rem] sm:w-[15.94rem] h-[2.18rem] sm:h-[7.44rem]"
-            />
-          </FadeUp>
+          <div className="absolute top-0 right-0 sm:static sm:mt-[10rem] w-[4.56rem] sm:w-[15.94rem] h-[2.18rem] sm:h-[7.44rem]">
+            <FadeUp>
+              <img src="/images/design-dialogues.svg" alt="Design Dialogues" className="w-full h-full" />
+            </FadeUp>
+          </div>
         </div>
       </div>
     </section>

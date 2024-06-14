@@ -13,7 +13,7 @@ const fadeUpVariants = {
 
 export default function FadeUp({ children }: { children: React.ReactNode }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: '0px 0px -100px 0px', once: true });
+  const isInView = useInView(ref, { margin: '0px 0px -50px 0px', once: true });
 
   return (
     <motion.div ref={ref} variants={fadeUpVariants} initial="out" animate={isInView ? 'in' : 'out'}>

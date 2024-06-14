@@ -3,9 +3,19 @@ import Image from 'next/image';
 import { sanityClient } from '@/studio/lib/client';
 import { aboutPageQuery } from '@/studio/queries';
 import SectionBros from '@/components/about/SectionBros';
-import SectionMovingText from '@/components/about/SectionMovingText';
+import MovingText from '@/components/MovingText';
 import SectionVision from '@/components/about/SectionVision';
+import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
 import type { AboutPage } from '@/studio/types';
+
+const words = [
+  { text: 'user', color: 'text-black', dot: false },
+  { text: 'experience', color: 'text-black', dot: false },
+  { text: 'design', color: 'text-xers-purple', dot: true },
+  { text: 'design', color: 'text-black', dot: false },
+  { text: 'spirit', color: 'text-xers-green', dot: true },
+];
 
 export default async function About() {
   const aboutPage: AboutPage = await sanityClient.fetch(aboutPageQuery);
@@ -25,63 +35,73 @@ export default async function About() {
         />
         <div className="relative padding-global pt-[8.38rem] sm:pt-[9.88rem]">
           <h1 className="text-[3.75rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.32rem] max-w-[70rem]">
-            {aboutPage.title}
+            <AnimatedText>{aboutPage.title}</AnimatedText>
           </h1>
           <div className="flex items-center justify-center sm:justify-end mt-[4.5rem] sm:mt-14">
-            <Link href="/">
-              <div className="flex flex-col-reverse sm:flex-row items-center gap-3 sm:gap-4 text-xers-blue">
-                <div className="text-lg sm:text-2xl font-normal sm:font-medium ml-4 -tracking-0 sm:-tracking-[0.03rem]">
-                  Know us better
-                </div>
-                <div className="relative w-20 aspect-square grid place-items-center border border-xers-blue rounded-full">
-                  <div className="flex flex-col gap-[0.3125rem] absolute -top-8 left-1/2 -translate-x-1/2">
-                    <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full opacity-[0.06]" />
-                    <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full opacity-30" />
-                    <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full" />
+            <FadeUp>
+              <Link href="/">
+                <div className="flex flex-col-reverse sm:flex-row items-center gap-3 sm:gap-4 text-xers-blue">
+                  <div className="text-lg sm:text-2xl font-normal sm:font-medium ml-4 -tracking-0 sm:-tracking-[0.03rem]">
+                    Know us better
                   </div>
-                  <div className="relative w-6 aspect-square">
-                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M12 5V19"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M19 12L12 19L5 12"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                  <div className="relative w-20 aspect-square grid place-items-center border border-xers-blue rounded-full">
+                    <div className="flex flex-col gap-[0.3125rem] absolute -top-8 left-1/2 -translate-x-1/2">
+                      <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full opacity-[0.06]" />
+                      <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full opacity-30" />
+                      <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full" />
+                    </div>
+                    <div className="relative w-6 aspect-square">
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 5V19"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M19 12L12 19L5 12"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </FadeUp>
           </div>
         </div>
       </section>
 
       <SectionBros aboutPage={aboutPage} />
-      <SectionMovingText />
+      <MovingText words={words} />
       <SectionVision aboutPage={aboutPage} />
 
       {aboutPage.imagesDesktop && (
         <section className="padding-global hidden sm:block mb-[8.5rem]">
-          <div
-            style={{ aspectRatio: `${aboutPage.imagesDesktop.aspectRatio}/1` }}
-            className="relative overflow-hidden rounded-2xl"
-          >
-            <Image
-              fill={true}
-              src={aboutPage.imagesDesktop.url}
-              alt={aboutPage.imagesDesktop.caption}
-              placeholder="blur"
-              blurDataURL={aboutPage.imagesDesktop.lqip}
-            />
-          </div>
+          <FadeUp>
+            <div
+              style={{ aspectRatio: `${aboutPage.imagesDesktop.aspectRatio}/1` }}
+              className="relative overflow-hidden rounded-2xl"
+            >
+              <Image
+                fill={true}
+                src={aboutPage.imagesDesktop.url}
+                alt={aboutPage.imagesDesktop.caption}
+                placeholder="blur"
+                blurDataURL={aboutPage.imagesDesktop.lqip}
+              />
+            </div>
+          </FadeUp>
         </section>
       )}
     </>
