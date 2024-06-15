@@ -34,6 +34,10 @@ export async function POST(req: NextRequest) {
       revalidatePath(`/projects/${body.slug}`);
     }
 
+    if (body._type === 'general') {
+      revalidatePath(`/`, 'layout');
+    }
+
     return NextResponse.json({
       status: 200,
       revalidated: true,
