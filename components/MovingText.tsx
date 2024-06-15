@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Autoplay } from 'swiper/modules';
 import { twMerge as twm } from 'tailwind-merge';
 import FadeUp from '@/components/FadeUp';
+import { useScreen } from 'usehooks-ts';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -15,12 +16,15 @@ type MovingWord = {
 };
 
 export default function MovingText({ words }: { words: MovingWord[] }) {
+  const screen = useScreen();
+  const isMobile = screen?.width <= 640;
+
   return (
     <section className="pointer-events-none sm:pointer-events-auto py-20 sm:py-[12.25rem]">
       <FadeUp>
         <Swiper
           slidesPerView="auto"
-          spaceBetween={window.innerWidth > 640 ? 20 : 12}
+          spaceBetween={isMobile ? 12 : 20}
           freeMode={true}
           loop={true}
           speed={3000}
