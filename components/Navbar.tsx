@@ -10,8 +10,9 @@ import NavLink from '@/components/NavLink';
 import { openSequence, closeSequence } from '@/lib/animations/navbar';
 import { SPRING_IN } from '@/lib/animations/constants';
 import { useSmoothScroll } from '@/components/SmoothScroll';
+import type { General } from '@/studio/types';
 
-export default function Navbar() {
+export default function Navbar({ generalData }: { generalData: General }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scope, animate] = useAnimate();
   const { startScroll, stopScroll } = useSmoothScroll();
@@ -107,14 +108,20 @@ export default function Navbar() {
                 ))}
 
                 <div className="mt-auto text-white pl-6 sm:pl-10 pb-8">
-                  <SocialIcons />
+                  <SocialIcons generalData={generalData} />
                 </div>
               </div>
 
               <div className="hidden sm:grid place-items-center">
                 <div className="flex flex-col items-start justify-center gap-9">
-                  <div className="menu_image relative w-[12.2rem] aspect-[0.6/1] origin-left">
-                    <Image src="/images/menu-photos.png" alt="Xers" fill={true} />
+                  <div className="menu_image relative w-[12.2rem] aspect-[0.6/1] origin-left rounded-md overflow-hidden">
+                    <Image
+                      src={generalData.navbarImage.url}
+                      alt={generalData.navbarImage.caption}
+                      placeholder="blur"
+                      blurDataURL={generalData.navbarImage.lqip}
+                      fill={true}
+                    />
                   </div>
                   <p className="menu_image-description text-white text-xl leading-[1.5] max-w-[21.13rem] origin-left">
                     Chasing dreams isn't a breeze, but when it's woven into our lives, the path smooths out. At Xers,

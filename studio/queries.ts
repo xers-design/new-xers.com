@@ -187,3 +187,23 @@ export const homePageQuery = groq`
     }
   }  
 `;
+
+export const generalQuery = groq`
+*[_type == "general" && isActive == true][0] {
+  title,
+  "navbarImage": {
+    "url": navbarImage.image.asset->url,
+    "lqip": navbarImage.image.asset->metadata.lqip,
+    "aspectRatio": navbarImage.image.asset->metadata.dimensions.aspectRatio,
+    "caption": navbarImage.caption
+  },
+  socialLinks[] {
+    label,
+    to,
+    "icon": {
+      "url": icon.asset->url,
+      "lqip": icon.asset->metadata.lqip
+    }
+  }
+}
+`;

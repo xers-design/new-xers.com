@@ -11,6 +11,7 @@ import testimonial from './schemaTypes/testimonial';
 import pageHome from './schemaTypes/pageHome';
 import pageAbout from './schemaTypes/pageAbout';
 import project from './schemaTypes/project';
+import general from './schemaTypes/general';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -25,5 +26,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pageHome,
     pageAbout,
     project,
+    general,
   ],
 };

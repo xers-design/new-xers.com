@@ -4,6 +4,9 @@ import { twMerge as twm } from 'tailwind-merge';
 import Navbar from '@/components/Navbar';
 import SectionGetInTouch from '@/components/GetInTouch';
 import SmoothScroll from '@/components/SmoothScroll';
+import { sanityClient } from '@/studio/lib/client';
+import { generalQuery } from '@/studio/queries';
+import type { General } from '@/studio/types';
 
 import './globals.css';
 
@@ -38,19 +41,17 @@ export const metadata: Metadata = {
   description: 'We flourish your digital vision into reality.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const generalData: General = await sanityClient.fetch(generalQuery);
+
   return (
     <html lang="en" className={generalSans.variable}>
       <body className={twm(generalSans.className, 'bg-white overflow-hidden')}>
         <SmoothScroll>
           <>
-            <Navbar />
+            <Navbar generalData={generalData} />
             <main>{children}</main>
-            <SectionGetInTouch />
+            <SectionGetInTouch generalData={generalData} />
           </>
         </SmoothScroll>
       </body>

@@ -5,8 +5,9 @@ import { twMerge as twm } from 'tailwind-merge';
 import SocialIcons from '@/components/SocialIcons';
 import AnimatedText from '@/components/AnimatedText';
 import FadeUp from '@/components/FadeUp';
+import type { General } from '@/studio/types';
 
-export default function GetInTouch() {
+export default function GetInTouch({ generalData }: { generalData: General }) {
   const pathname = usePathname();
 
   return (
@@ -124,7 +125,7 @@ export default function GetInTouch() {
               </form>
             </FadeUp>
             <div className="mt-16 hidden sm:flex justify-end">
-              <SocialIcons />
+              <SocialIcons generalData={generalData} />
             </div>
           </div>
         </div>

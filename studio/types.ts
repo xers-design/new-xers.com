@@ -157,3 +157,22 @@ export interface HomePage {
   _type: string;
   _id: string;
 }
+
+export interface SocialLink {
+  icon: Omit<Image, 'aspectRatio, caption'>;
+  label: string;
+  to: string;
+  _key: string;
+}
+
+export interface General {
+  _id: string;
+  isActive: boolean;
+  title: string;
+  _updatedAt: string;
+  _createdAt: string;
+  _rev: string;
+  _type: string;
+  navbarImage: Image;
+  socialLinks: SocialLink[];
+}
