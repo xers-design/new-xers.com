@@ -4,6 +4,7 @@ import { sanityClient } from '@/studio/lib/client';
 import { aboutPageQuery } from '@/studio/queries';
 import SectionBros from '@/components/about/SectionBros';
 import MovingText from '@/components/MovingText';
+import KnowUsBetterButton from '@/components/about/KnowUsBetterButton';
 import SectionVision from '@/components/about/SectionVision';
 import AnimatedText from '@/components/AnimatedText';
 import FadeUp from '@/components/FadeUp';
@@ -39,44 +40,7 @@ export default async function About() {
           </h1>
           <div className="flex items-center justify-center sm:justify-end mt-[4.5rem] sm:mt-14">
             <FadeUp>
-              <Link href="/">
-                <div className="flex flex-col-reverse sm:flex-row items-center gap-3 sm:gap-4 text-xers-blue">
-                  <div className="text-lg sm:text-2xl font-normal sm:font-medium ml-4 -tracking-0 sm:-tracking-[0.03rem]">
-                    Know us better
-                  </div>
-                  <div className="relative w-20 aspect-square grid place-items-center border border-xers-blue rounded-full">
-                    <div className="flex flex-col gap-[0.3125rem] absolute -top-8 left-1/2 -translate-x-1/2">
-                      <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full opacity-[0.06]" />
-                      <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full opacity-30" />
-                      <div className="w-1 aspect-square shrink-0 bg-xers-blue rounded-full" />
-                    </div>
-                    <div className="relative w-6 aspect-square">
-                      <svg
-                        width="100%"
-                        height="100%"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 5V19"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M19 12L12 19L5 12"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+              <KnowUsBetterButton />
             </FadeUp>
           </div>
         </div>

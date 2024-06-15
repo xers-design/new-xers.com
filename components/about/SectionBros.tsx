@@ -8,7 +8,7 @@ import type { AboutPage, Bro } from '@/studio/types';
 
 export default function SectionBros({ aboutPage }: { aboutPage: AboutPage }) {
   return (
-    <section>
+    <section id="bros">
       <div className="padding-global overflow-hidden">
         <div className="sm:px-[7rem] mt-16 sm:mt-[7.5rem] sm:flex justify-between">
           {aboutPage.bros.map((bro: Bro, index: number) => (

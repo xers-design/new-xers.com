@@ -20,7 +20,7 @@ export default function Card({ project, shouldReverse }: { project: Project; sho
           <h2 className="min-w-full text-[2.5rem] sm:text-[4rem] font-medium leading-[1.1] -tracking-[0.1rem] sm:-tracking-[0.16rem]">
             <AnimatedText>{project.name}</AnimatedText>
           </h2>
-          <div className="text-lg sm:text-xl font-normal leading-[1.5]">
+          <div className="text-lg sm:text-xl font-normal leading-[1.5] mb-auto">
             <AnimatedText>{project.description}</AnimatedText>
           </div>
           <FadeUp>
