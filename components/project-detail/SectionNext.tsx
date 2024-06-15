@@ -13,12 +13,24 @@ export default function SectionNext({ project }: { project: ProjectDetail }) {
           <div className="-mx-4 sm:mx-0">
             <FadeUp>
               <div className="hidden sm:block relative inset-0 w-full aspect-[16/9] rounded-2xl overflow-hidden">
-                <Image src="/images/project-confie-detail-featured.jpg" alt="Confie" fill={true} />
+                <Image
+                  src={project.outroImageDesktop.url}
+                  alt={project.outroImageDesktop.caption}
+                  placeholder="blur"
+                  blurDataURL={project.outroImageDesktop.lqip}
+                  fill={true}
+                />
               </div>
             </FadeUp>
             <FadeUp>
               <div className="sm:hidden relative inset-0 w-full aspect-[0.75/1] rounded-lg overflow-hidden">
-                <Image src="/images/project-confie-detail-featured-mobile.jpg" alt="Confie" fill={true} />
+                <Image
+                  src={project.outroImageMobile.url}
+                  alt={project.outroImageMobile.caption}
+                  placeholder="blur"
+                  blurDataURL={project.outroImageMobile.lqip}
+                  fill={true}
+                />
               </div>
             </FadeUp>
 

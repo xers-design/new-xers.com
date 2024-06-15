@@ -17,6 +17,7 @@ export interface Children {
   marks: any[];
   text: string;
 }
+
 export interface Bio {
   markDefs: any[];
   children: Children[];
@@ -111,7 +112,8 @@ export interface ProjectDetail {
   challenges: Challenge[];
   _id: string;
   _rev: string;
-  outroImage: Image;
+  outroImageDesktop: Image;
+  outroImageMobile: Image;
   logo: Image;
   slug: Slug;
   slogan: string;

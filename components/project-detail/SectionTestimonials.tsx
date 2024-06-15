@@ -28,7 +28,7 @@ export default function SectionTestimonials({ project }: { project: ProjectDetai
     <section>
       <div className="padding-global pb-16 sm:pb-[8.5rem]">
         <div className="flex flex-col sm:flex-row items-start justify-end">
-          <div className="mr-auto mb-10 sm:mb-0">
+          <div className="mr-auto mb-8 sm:mb-0">
             <h2 className="text-2xl sm:text-2xl font-medium leading-[1.1] -tracking-[0.06rem]">
               <AnimatedText>Testimonial</AnimatedText>
             </h2>

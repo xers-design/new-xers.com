@@ -116,8 +116,14 @@ export default defineType({
       of: [{ type: 'testimonial' }],
     }),
     defineField({
-      name: 'outroImage',
-      title: 'Outro Image',
+      name: 'outroImageDesktop',
+      title: 'Outro Image (Desktop)',
+      type: 'customImage',
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: 'outroImageMobile',
+      title: 'Outro Image (Mobile)',
       type: 'customImage',
       validation: (r) => r.required(),
     }),

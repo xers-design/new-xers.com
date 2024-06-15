@@ -102,11 +102,17 @@ export const projectDetailQuery = groq`
         "caption": challengeImage.caption,
         "aspectRatio": challengeImage.image.asset->metadata.dimensions.aspectRatio
     },
-    "outroImage": {
-        "url": outroImage.image.asset->url,
-        "lqip": outroImage.image.asset->metadata.lqip,
-        "caption": outroImage.caption,
-        "aspectRatio": outroImage.image.asset->metadata.dimensions.aspectRatio
+    "outroImageDesktop": {
+        "url": outroImageDesktop.image.asset->url,
+        "lqip": outroImageDesktop.image.asset->metadata.lqip,
+        "caption": outroImageDesktop.caption,
+        "aspectRatio": outroImageDesktop.image.asset->metadata.dimensions.aspectRatio
+    },
+    "outroImageMobile": {
+        "url": outroImageMobile.image.asset->url,
+        "lqip": outroImageMobile.image.asset->metadata.lqip,
+        "caption": outroImageMobile.caption,
+        "aspectRatio": outroImageMobile.image.asset->metadata.dimensions.aspectRatio
     },
     "previousProject": *[_type == "project" && _createdAt < ^._createdAt] | order(_createdAt desc)[0] {
         name,

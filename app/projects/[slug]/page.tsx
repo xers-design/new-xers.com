@@ -10,6 +10,7 @@ import type { ProjectDetail } from '@/studio/types';
 
 export default async function ProjectDetail({ params: { slug } }: { params: { slug: string } }) {
   const project: ProjectDetail = await sanityClient.fetch(projectDetailQuery, { slug });
+
   return (
     <>
       <SectionHero project={project} />
