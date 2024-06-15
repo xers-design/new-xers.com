@@ -35,7 +35,7 @@ export default async function About() {
         />
         <div className="relative padding-global pt-[8.38rem] sm:pt-[9.88rem]">
           <h1 className="text-[3.75rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.32rem] max-w-[70rem]">
-            <AnimatedText>{aboutPage.title}</AnimatedText>
+            <AnimatedText className="pb-1 sm:pb-3">{aboutPage.title}</AnimatedText>
           </h1>
           <div className="flex items-center justify-center sm:justify-end mt-[4.5rem] sm:mt-14">
             <FadeUp>

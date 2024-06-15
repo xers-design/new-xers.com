@@ -9,7 +9,11 @@ type Body = {
 
 export async function POST(req: NextRequest) {
   try {
-    const { body } = await parseBody<Body>(req);
+    const { body, isValidSignature } = await parseBody<Body>(req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET);
+
+    if (!isValidSignature) {
+      return new Response('Invalid Signature', { status: 401 });
+    }
 
     if (!body?._type) {
       return new Response('Bad Request', { status: 400 });
