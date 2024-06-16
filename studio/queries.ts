@@ -1,4 +1,4 @@
-import groq from 'groq';
+import groq from "groq";
 
 export const aboutPageQuery = groq`
 *[_type == "aboutPage" && isActive == true][0] {

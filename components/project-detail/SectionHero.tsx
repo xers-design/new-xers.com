@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
-import type { ProjectDetail } from '@/studio/types';
+import Image from "next/image";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
+import type { ProjectDetail } from "@/studio/types";
 
 export default function SectionHero({ project }: { project: ProjectDetail }) {
   return (

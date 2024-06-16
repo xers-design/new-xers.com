@@ -1,5 +1,5 @@
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
 
 export default function SectionProcess() {
   return (
@@ -10,10 +10,15 @@ export default function SectionProcess() {
             <div className="hidden sm:block bg-white rounded-2xl overflow-hidden">
               <div className="grid gap-8 px-12 pt-10">
                 <h2 className="text-[2rem] sm:text-5xl font-medium leading-[1.1] -tracking-[0.08rem] sm:-tracking-[0.12rem]">
-                  <AnimatedText>How we define and design user experience...</AnimatedText>
+                  <AnimatedText>
+                    How we define and design user experience...
+                  </AnimatedText>
                 </h2>
                 <div className="text-2xl font-normal leading-[1.5] max-w-[26.75rem]">
-                  <AnimatedText>We’ve experienced how to design the experience for thousands of users.</AnimatedText>
+                  <AnimatedText>
+                    We’ve experienced how to design the experience for thousands
+                    of users.
+                  </AnimatedText>
                 </div>
               </div>
               <FadeUp>
@@ -39,8 +44,9 @@ export default function SectionProcess() {
                 </FadeUp>
                 <div className="text-lg font-normal leading-[1.5]">
                   <AnimatedText>
-                    Let’s together delve into user segments, define clear product objectives, and streamline your
-                    business direction effectively.
+                    Let’s together delve into user segments, define clear
+                    product objectives, and streamline your business direction
+                    effectively.
                   </AnimatedText>
                 </div>
               </div>
@@ -58,8 +64,9 @@ export default function SectionProcess() {
                 </FadeUp>
                 <div className="text-lg font-normal leading-[1.5]">
                   <AnimatedText>
-                    No beat around the bush. Will examine and explore all solutions that profits your business and offer
-                    great experience to your users.
+                    No beat around the bush. Will examine and explore all
+                    solutions that profits your business and offer great
+                    experience to your users.
                   </AnimatedText>
                 </div>
               </div>
@@ -77,8 +84,8 @@ export default function SectionProcess() {
                 </FadeUp>
                 <div className="text-lg font-normal leading-[1.5]">
                   <AnimatedText>
-                    Rapid prototyping is in our blood. We build living and breathing prototype in hours that are fully
-                    testable.
+                    Rapid prototyping is in our blood. We build living and
+                    breathing prototype in hours that are fully testable.
                   </AnimatedText>
                 </div>
               </div>
@@ -96,7 +103,8 @@ export default function SectionProcess() {
                 </FadeUp>
                 <div className="text-lg font-normal leading-[1.5]">
                   <AnimatedText>
-                    Most exciting! we win early or we learn early. Let’s be sure that we give users best value.
+                    Most exciting! we win early or we learn early. Let’s be sure
+                    that we give users best value.
                   </AnimatedText>
                 </div>
               </div>

@@ -1,31 +1,41 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { motion, useScroll, useAnimate } from 'framer-motion';
-import Badge from '@/components/Badge';
-import { SPRING_OUT } from '@/lib/animations/constants';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
-import type { HomePage } from '@/studio/types';
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { motion, useScroll, useAnimate } from "framer-motion";
+import Badge from "@/components/Badge";
+import { SPRING_OUT } from "@/lib/animations/constants";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
+import type { HomePage } from "@/studio/types";
 
 export default function SectionServices({ homePage }: { homePage: HomePage }) {
   const [scope, animate] = useAnimate();
-  const { scrollYProgress } = useScroll({ target: scope, offset: ['start start', 'end end'] });
+  const { scrollYProgress } = useScroll({
+    target: scope,
+    offset: ["start start", "end end"],
+  });
   const [serviceIndex, setServiceIndex] = useState(0);
 
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', (progress) => {
+    const unsubscribe = scrollYProgress.on("change", (progress) => {
       const servicesLength = homePage.services.length;
       const threshold = 1 / servicesLength;
-      const newServiceIndex = Math.min(Math.floor(progress / threshold), servicesLength - 1);
+      const newServiceIndex = Math.min(
+        Math.floor(progress / threshold),
+        servicesLength - 1,
+      );
       if (newServiceIndex !== serviceIndex) setServiceIndex(newServiceIndex);
     });
     return unsubscribe;
   }, [serviceIndex]);
 
   useEffect(() => {
-    animate('.service-container', { x: `-${serviceIndex * 100}%` }, { ...SPRING_OUT, duration: 0.6 });
+    animate(
+      ".service-container",
+      { x: `-${serviceIndex * 100}%` },
+      { ...SPRING_OUT, duration: 0.6 },
+    );
   }, [serviceIndex]);
 
   return (
@@ -56,7 +66,9 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
                 <div key={i} className="relative px-14 grow !min-w-full">
                   <div className="">
                     <h3 className="max-w-[20rem] sm:max-w-full text-[2.5rem] sm:text-7xl font-medium leading-[1.1] -tracking-[0.1rem] sm:-tracking-[0.18rem] mb-6">
-                      <AnimatedText className="pb-2">{service.title}</AnimatedText>
+                      <AnimatedText className="pb-2">
+                        {service.title}
+                      </AnimatedText>
                     </h3>
                     <div className="text-lg sm:text-2xl font-normal leading-[1.5] max-w-[58.7rem] mb-16">
                       <AnimatedText>{service.description}</AnimatedText>
@@ -66,7 +78,9 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
                   <FadeUp>
                     <div className="relative">
                       <div
-                        style={{ aspectRatio: `${service.desktopImage.aspectRatio}/1` }}
+                        style={{
+                          aspectRatio: `${service.desktopImage.aspectRatio}/1`,
+                        }}
                         className="hidden sm:block w-full relative overflow-hidden rounded-xl"
                       >
                         <Image

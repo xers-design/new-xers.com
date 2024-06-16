@@ -1,10 +1,12 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import FadeUp from '@/components/FadeUp';
-import type { ProjectDetail } from '@/studio/types';
+import Image from "next/image";
+import Link from "next/link";
+import FadeUp from "@/components/FadeUp";
+import type { ProjectDetail } from "@/studio/types";
 
 export default function SectionNext({ project }: { project: ProjectDetail }) {
-  const nextSlug = project.nextProject ? project.nextProject.slug.current : project.firstProject.slug.current;
+  const nextSlug = project.nextProject
+    ? project.nextProject.slug.current
+    : project.firstProject.slug.current;
 
   return (
     <>
@@ -37,7 +39,9 @@ export default function SectionNext({ project }: { project: ProjectDetail }) {
             <div className="flex justify-center relative -translate-y-1/2 px-10 sm:px-0">
               <Link href={`/projects/${nextSlug}`} className="w-full sm:w-auto">
                 <div className="bg-black rounded-full p-4 flex items-center justify-between gap-5 sm:gap-[5.3rem] text-white">
-                  <div className="text-2xl font-medium ml-4 -tracking-[0.03rem] whitespace-nowrap">Next Project</div>
+                  <div className="text-2xl font-medium ml-4 -tracking-[0.03rem] whitespace-nowrap">
+                    Next Project
+                  </div>
                   <div className="shrink-0 w-10 sm:w-16 aspect-square rounded-full bg-xers-blue grid place-items-center">
                     <div className="w-6 aspect-square hidden sm:block">
                       <svg

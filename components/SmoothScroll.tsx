@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useRef, useCallback } from 'react';
-import { ReactLenis } from 'lenis/react';
+import React, { createContext, useContext, useRef, useCallback } from "react";
+import { ReactLenis } from "lenis/react";
 
 type SmoothScrollContextType = {
   startScroll: () => void;
@@ -13,12 +13,18 @@ const SmoothScrollContext = createContext<SmoothScrollContextType | null>(null);
 export const useSmoothScroll = () => {
   const context = useContext(SmoothScrollContext);
   if (!context) {
-    throw new Error('useSmoothScroll must be used within a SmoothScrollProvider');
+    throw new Error(
+      "useSmoothScroll must be used within a SmoothScrollProvider",
+    );
   }
   return context;
 };
 
-export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+export default function SmoothScroll({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const lenisRef = useRef<any>(null);
 
   const startScroll = useCallback(() => {

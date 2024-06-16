@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useState, useEffect, useRef, use } from 'react';
-import Player from 'next-video/player';
-import { useOnClickOutside } from 'usehooks-ts';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
-import { useSmoothScroll } from '@/components/SmoothScroll';
-import { motion, AnimatePresence } from 'framer-motion';
-import { SPRING_IN, SPRING_OUT } from '@/lib/animations/constants';
-import type { Video } from '@/studio/types';
+import Image from "next/image";
+import { useState, useEffect, useRef, use } from "react";
+import Player from "next-video/player";
+import { useOnClickOutside } from "usehooks-ts";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
+import { useSmoothScroll } from "@/components/SmoothScroll";
+import { motion, AnimatePresence } from "framer-motion";
+import { SPRING_IN, SPRING_OUT } from "@/lib/animations/constants";
+import type { Video } from "@/studio/types";
 
 const overlayAnimationProps = {
   initial: { opacity: 0 },
@@ -31,17 +31,22 @@ export default function Video({ video }: { video: Video }) {
   useOnClickOutside(ref, () => setIsOpen(false));
 
   useEffect(() => {
-    isOpen ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset');
+    isOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
     isOpen ? stopScroll() : startScroll();
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
   return (
     <>
       <FadeUp>
-        <button onClick={() => setIsOpen(true)} className="relative w-full aspect-[16/9] overflow-hidden rounded-3xl">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="relative w-full aspect-[16/9] overflow-hidden rounded-3xl"
+        >
           <div className="w-full h-full relative">
             <Image
               src={video.thumbnail.url}
@@ -54,7 +59,13 @@ export default function Video({ video }: { video: Video }) {
 
           <div className="w-10 sm:w-20 aspect-square text-xers-blue absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <FadeUp>
-              <svg width="100%" height="100%" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 80 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <g filter="url(#filter0_b_1_2932)">
                   <rect width="80" height="80" rx="40" fill="currentColor" />
                   <path
@@ -78,8 +89,17 @@ export default function Video({ video }: { video: Video }) {
                   >
                     <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feGaussianBlur in="BackgroundImageFix" stdDeviation="4" />
-                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_2932" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_2932" result="shape" />
+                    <feComposite
+                      in2="SourceAlpha"
+                      operator="in"
+                      result="effect1_backgroundBlur_1_2932"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_backgroundBlur_1_2932"
+                      result="shape"
+                    />
                   </filter>
                 </defs>
               </svg>

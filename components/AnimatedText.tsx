@@ -1,18 +1,21 @@
-'use client';
+"use client";
 
-import React, { useEffect } from 'react';
-import { SplitText } from '@splittext/react';
-import { useSplitText } from '@splittext/react/hooks';
-import { useAnimate, useInView } from 'framer-motion';
+import React, { useEffect } from "react";
+import { SplitText } from "@splittext/react";
+import { useSplitText } from "@splittext/react/hooks";
+import { useAnimate, useInView } from "framer-motion";
 
 type AnimatedTextProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-export default function AnimatedText({ children, className = '' }: AnimatedTextProps) {
+export default function AnimatedText({
+  children,
+  className = "",
+}: AnimatedTextProps) {
   const [scrollScope, animate] = useAnimate();
-  const isInView = useInView(scrollScope, { margin: '0px 0px -100px 0px' });
+  const isInView = useInView(scrollScope, { margin: "0px 0px -100px 0px" });
   const { scope, getScopedElements } = useSplitText();
 
   useEffect(() => {
@@ -20,7 +23,7 @@ export default function AnimatedText({ children, className = '' }: AnimatedTextP
     if (!lines || lines.length === 0) return;
 
     if (isInView) {
-      animate('.str-line', { y: '0%' });
+      animate(".str-line", { y: "0%" });
     }
   }, [isInView]);
 
@@ -30,8 +33,13 @@ export default function AnimatedText({ children, className = '' }: AnimatedTextP
       <SplitText
         aria-hidden
         ref={scope}
-        mode={['line']}
-        options={{ line: { wrapper: true, wrapperProps: { className: transformClass(className) } } }}
+        mode={["line"]}
+        options={{
+          line: {
+            wrapper: true,
+            wrapperProps: { className: transformClass(className) },
+          },
+        }}
       >
         {children}
       </SplitText>
@@ -41,10 +49,10 @@ export default function AnimatedText({ children, className = '' }: AnimatedTextP
 
 function transformClass(input: string) {
   return input
-    .split(' ')
+    .split(" ")
     .map((cls) => {
       const match = cls.match(/^(\S+:)?pb-(\d+)$/);
-      return match ? `${cls} ${match[1] || ''}-mb-${match[2]}` : cls;
+      return match ? `${cls} ${match[1] || ""}-mb-${match[2]}` : cls;
     })
-    .join(' ');
+    .join(" ");
 }

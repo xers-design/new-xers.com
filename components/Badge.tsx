@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export default function Badge({ image }: { image: string }) {
   return (
     <div className="relative w-full h-full">
       <motion.img
         animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 6, ease: 'linear' }}
+        transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
         src={image}
         alt="Xers Product Design Agency Badge"
         className="w-full h-full"

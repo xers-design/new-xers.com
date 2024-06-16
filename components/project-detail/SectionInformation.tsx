@@ -1,10 +1,14 @@
-import Image from 'next/image';
-import React from 'react';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
-import type { ProjectDetail } from '@/studio/types';
+import Image from "next/image";
+import React from "react";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
+import type { ProjectDetail } from "@/studio/types";
 
-export default function SectionInformation({ project }: { project: ProjectDetail }) {
+export default function SectionInformation({
+  project,
+}: {
+  project: ProjectDetail;
+}) {
   return (
     <section>
       <div className="padding-global relative pt-9 sm:pt-[4.5rem] pb-20 sm:pb-[11.25rem] sm:flex items-start gap-5">
@@ -16,7 +20,11 @@ export default function SectionInformation({ project }: { project: ProjectDetail
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <FadeUp>
                 <div className="relative shrink-0 w-[4.25rem] sm:w-[5.5rem] aspect-[1.22/1]">
-                  <Image src="/images/project-detail-platform.svg" alt="Platform" fill={true} />
+                  <Image
+                    src="/images/project-detail-platform.svg"
+                    alt="Platform"
+                    fill={true}
+                  />
                 </div>
               </FadeUp>
               <div className="flex flex-col gap-[0.31rem]">
@@ -24,7 +32,11 @@ export default function SectionInformation({ project }: { project: ProjectDetail
                   <AnimatedText>Platform</AnimatedText>
                 </div>
                 <div className="w-full sm:w-[24rem] text-black text-xl sm:text-2xl leading-[1.3] font-medium">
-                  <AnimatedText>{project.platforms.map((platform) => platform.name).join(' / ')}</AnimatedText>
+                  <AnimatedText>
+                    {project.platforms
+                      .map((platform) => platform.name)
+                      .join(" / ")}
+                  </AnimatedText>
                 </div>
               </div>
             </div>
@@ -32,7 +44,11 @@ export default function SectionInformation({ project }: { project: ProjectDetail
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <FadeUp>
                 <div className="relative shrink-0 w-[4.25rem] sm:w-[5.5rem] aspect-[1.22/1]">
-                  <Image src="/images/project-detail-dev-partner.svg" alt="Dev Partner" fill={true} />
+                  <Image
+                    src="/images/project-detail-dev-partner.svg"
+                    alt="Dev Partner"
+                    fill={true}
+                  />
                 </div>
               </FadeUp>
               <div className="flex flex-col gap-[0.31rem]">
@@ -48,7 +64,11 @@ export default function SectionInformation({ project }: { project: ProjectDetail
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <FadeUp>
                 <div className="relative shrink-0 w-[4.25rem] sm:w-[5.5rem] aspect-[1.22/1]">
-                  <Image src="/images/project-detail-client.svg" alt="Client" fill={true} />
+                  <Image
+                    src="/images/project-detail-client.svg"
+                    alt="Client"
+                    fill={true}
+                  />
                 </div>
               </FadeUp>
               <div className="flex flex-col gap-[0.31rem]">
@@ -64,7 +84,11 @@ export default function SectionInformation({ project }: { project: ProjectDetail
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <FadeUp>
                 <div className="relative shrink-0 w-[4.25rem] sm:w-[5.5rem] aspect-[1.22/1]">
-                  <Image src="/images/project-detail-market.svg" alt="Market" fill={true} />
+                  <Image
+                    src="/images/project-detail-market.svg"
+                    alt="Market"
+                    fill={true}
+                  />
                 </div>
               </FadeUp>
               <div className="flex flex-col gap-[0.31rem]">
@@ -117,7 +141,11 @@ export default function SectionInformation({ project }: { project: ProjectDetail
         <div className="sticky top-[4.5rem] mt-2">
           <FadeUp>
             <div className="hidden sm:block shrink-0 w-[17.69rem] aspect-[4.56/1]">
-              <Image src="/images/project-detail-devices.svg" alt="Devices" fill={true} />
+              <Image
+                src="/images/project-detail-devices.svg"
+                alt="Devices"
+                fill={true}
+              />
             </div>
           </FadeUp>
         </div>

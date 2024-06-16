@@ -159,7 +159,7 @@ export interface HomePage {
 }
 
 export interface SocialLink {
-  icon: Omit<Image, 'aspectRatio, caption'>;
+  icon: Omit<Image, "aspectRatio, caption">;
   label: string;
   to: string;
   _key: string;

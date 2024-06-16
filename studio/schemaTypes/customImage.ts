@@ -1,21 +1,21 @@
-import { defineType, defineField } from 'sanity';
+import { defineType, defineField } from "sanity";
 
 export default defineType({
-  title: 'Image',
-  name: 'customImage',
-  type: 'object',
+  title: "Image",
+  name: "customImage",
+  type: "object",
   fields: [
     defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
+      name: "image",
+      title: "Image",
+      type: "image",
       options: { hotspot: true },
       validation: (r) => r.required(),
     }),
     defineField({
-      name: 'caption',
-      title: 'Caption',
-      type: 'string',
+      name: "caption",
+      title: "Caption",
+      type: "string",
       validation: (r) => r.required(),
     }),
   ],

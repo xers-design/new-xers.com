@@ -1,14 +1,14 @@
-import Link from 'next/link';
-import Project from '@/components/home/Project';
-import MovingText from '@/components/MovingText';
-import Badge from '@/components/Badge';
-import FadeUp from '@/components/FadeUp';
-import type { HomePage } from '@/studio/types';
+import Link from "next/link";
+import Project from "@/components/home/Project";
+import MovingText from "@/components/MovingText";
+import Badge from "@/components/Badge";
+import FadeUp from "@/components/FadeUp";
+import type { HomePage } from "@/studio/types";
 
 const words = [
-  { text: 'Designing', color: 'text-xers-purple', dot: false },
-  { text: 'revolutionary', color: 'text-black', dot: false },
-  { text: 'products', color: 'text-xers-green', dot: false },
+  { text: "Designing", color: "text-xers-purple", dot: false },
+  { text: "revolutionary", color: "text-black", dot: false },
+  { text: "products", color: "text-xers-green", dot: false },
 ];
 
 export default function SectionProjects({ homePage }: { homePage: HomePage }) {

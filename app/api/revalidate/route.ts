@@ -1,6 +1,6 @@
-import { revalidatePath } from 'next/cache';
-import { type NextRequest, NextResponse } from 'next/server';
-import { parseBody } from 'next-sanity/webhook';
+import { revalidatePath } from "next/cache";
+import { type NextRequest, NextResponse } from "next/server";
+import { parseBody } from "next-sanity/webhook";
 
 type Body = {
   _type: string;
@@ -9,20 +9,23 @@ type Body = {
 
 export async function POST(req: NextRequest) {
   try {
-    const { body, isValidSignature } = await parseBody<Body>(req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET);
+    const { body, isValidSignature } = await parseBody<Body>(
+      req,
+      process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET,
+    );
 
     if (!isValidSignature) {
-      return new Response('Invalid Signature', { status: 401 });
+      return new Response("Invalid Signature", { status: 401 });
     }
 
     if (!body?._type) {
-      return new Response('Bad Request', { status: 400 });
+      return new Response("Bad Request", { status: 400 });
     }
 
     const paths: Record<string, string[]> = {
-      pageHome: ['/'],
-      aboutPage: ['/about'],
-      project: ['/', '/projects'],
+      pageHome: ["/"],
+      aboutPage: ["/about"],
+      project: ["/", "/projects"],
     };
 
     paths[body._type] = paths[body._type] || [];
@@ -30,12 +33,12 @@ export async function POST(req: NextRequest) {
       revalidatePath(path);
     }
 
-    if (body._type === 'project') {
+    if (body._type === "project") {
       revalidatePath(`/projects/${body.slug}`);
     }
 
-    if (body._type === 'general') {
-      revalidatePath(`/`, 'layout');
+    if (body._type === "general") {
+      revalidatePath(`/`, "layout");
     }
 
     return NextResponse.json({

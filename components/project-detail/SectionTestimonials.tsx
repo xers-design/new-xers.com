@@ -1,24 +1,28 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade, Pagination } from 'swiper/modules';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
-import type { ProjectDetail } from '@/studio/types';
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Pagination } from "swiper/modules";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
+import type { ProjectDetail } from "@/studio/types";
 
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
 
-export default function SectionTestimonials({ project }: { project: ProjectDetail }) {
+export default function SectionTestimonials({
+  project,
+}: {
+  project: ProjectDetail;
+}) {
   const pagination = {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
-    bulletClass: 'bullet',
-    bulletActiveClass: 'bullet-active',
+    bulletClass: "bullet",
+    bulletActiveClass: "bullet-active",
     renderBullet: function (index: number, className: string) {
-      return '<span class="' + className + '">-0' + (index + 1) + '</span>';
+      return '<span class="' + className + '">-0' + (index + 1) + "</span>";
     },
   };
 

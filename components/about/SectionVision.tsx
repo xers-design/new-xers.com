@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import Video from '@/components/Video';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
-import type { AboutPage, Image as ImageType } from '@/studio/types';
+import Image from "next/image";
+import Video from "@/components/Video";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
+import type { AboutPage, Image as ImageType } from "@/studio/types";
 
 export default function SectionVision({ aboutPage }: { aboutPage: AboutPage }) {
   return (
@@ -21,8 +21,17 @@ export default function SectionVision({ aboutPage }: { aboutPage: AboutPage }) {
           <div className="sm:hidden mt-16 flex flex-col gap-6">
             {aboutPage.imagesMobile.map((image: ImageType) => (
               <FadeUp key={image.url}>
-                <div style={{ aspectRatio: `${image.aspectRatio}/1` }} className="relative overflow-hidden rounded-2xl">
-                  <Image fill={true} src={image.url} alt={image.caption} placeholder="blur" blurDataURL={image.lqip} />
+                <div
+                  style={{ aspectRatio: `${image.aspectRatio}/1` }}
+                  className="relative overflow-hidden rounded-2xl"
+                >
+                  <Image
+                    fill={true}
+                    src={image.url}
+                    alt={image.caption}
+                    placeholder="blur"
+                    blurDataURL={image.lqip}
+                  />
                 </div>
               </FadeUp>
             ))}

@@ -1,4 +1,4 @@
-import type { General } from '@/studio/types';
+import type { General } from "@/studio/types";
 
 export default function SocialIcons({ generalData }: { generalData: General }) {
   return (
@@ -6,7 +6,12 @@ export default function SocialIcons({ generalData }: { generalData: General }) {
       {generalData.socialLinks &&
         generalData.socialLinks.length > 0 &&
         generalData.socialLinks.map((link, i) => (
-          <a key={i} target="_black" href={link.to} className="social-icon w-11 aspect-square">
+          <a
+            key={i}
+            target="_black"
+            href={link.to}
+            className="social-icon w-11 aspect-square"
+          >
             <span className="sr-only">{link.label}</span>
             <img src={link.icon.url} alt="" className="w-full h-full" />
           </a>

@@ -1,15 +1,23 @@
-import React from 'react';
-import type { HomePage } from '@/studio/types';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
+import React from "react";
+import type { HomePage } from "@/studio/types";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
 
-export default function SectionHighlights({ homePage }: { homePage: HomePage }) {
+export default function SectionHighlights({
+  homePage,
+}: {
+  homePage: HomePage;
+}) {
   return (
     <section>
       <div className="padding-global flex flex-wrap items-center justify-between gap-y-20 mt-16 sm:mt-24 mb-[7.6rem] sm:mb-[8.25rem] ">
         <div className="w-1/2 sm:w-auto mr-auto">
           <FadeUp>
-            <img src="/images/home-highlights-shape.svg" alt="" className="w-[6.25rem] sm:w-[11.8rem] aspect-square" />
+            <img
+              src="/images/home-highlights-shape.svg"
+              alt=""
+              className="w-[6.25rem] sm:w-[11.8rem] aspect-square"
+            />
           </FadeUp>
         </div>
 

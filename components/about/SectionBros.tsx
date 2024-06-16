@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import { PortableText } from '@portabletext/react';
-import { twMerge as twm } from 'tailwind-merge';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
-import AnimatedPortableText from '@/components/AnimatedPortableText';
-import type { AboutPage, Bro } from '@/studio/types';
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { twMerge as twm } from "tailwind-merge";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
+import AnimatedPortableText from "@/components/AnimatedPortableText";
+import type { AboutPage, Bro } from "@/studio/types";
 
 export default function SectionBros({ aboutPage }: { aboutPage: AboutPage }) {
   return (
@@ -14,7 +14,10 @@ export default function SectionBros({ aboutPage }: { aboutPage: AboutPage }) {
           {aboutPage.bros.map((bro: Bro, index: number) => (
             <div
               key={index}
-              className={twm('relative w-full max-w-[27rem]', (index + 1) % 2 === 0 && 'mt-20 sm:mt-[7.19rem]')}
+              className={twm(
+                "relative w-full max-w-[27rem]",
+                (index + 1) % 2 === 0 && "mt-20 sm:mt-[7.19rem]",
+              )}
             >
               <FadeUp>
                 <div
@@ -31,10 +34,10 @@ export default function SectionBros({ aboutPage }: { aboutPage: AboutPage }) {
                 </div>
                 <div
                   className={twm(
-                    'text-lg sm:text-2xl font-normal sm:font-medium leading-[1.5] -tracking-[0.03rem] px-4 py-[0.63rem]  rounded-full absolute  text-white',
+                    "text-lg sm:text-2xl font-normal sm:font-medium leading-[1.5] -tracking-[0.03rem] px-4 py-[0.63rem]  rounded-full absolute  text-white",
                     (index + 1) % 2 === 0
-                      ? 'bg-xers-green -top-4 -left-2 sm:-left-4 -rotate-[15.51deg]'
-                      : 'bg-xers-purple -top-4 right-0 sm:-right-4 rotate-[15.51deg]'
+                      ? "bg-xers-green -top-4 -left-2 sm:-left-4 -rotate-[15.51deg]"
+                      : "bg-xers-purple -top-4 right-0 sm:-right-4 rotate-[15.51deg]",
                   )}
                 >
                   {bro.pillShapeText}
