@@ -5,6 +5,8 @@ import { twMerge as twm } from "tailwind-merge";
 import SocialIcons from "@/components/SocialIcons";
 import AnimatedText from "@/components/AnimatedText";
 import FadeUp from "@/components/FadeUp";
+import sendEmail from "@/app/actions/send-email";
+import XersEmailTemplate from "@/emails/XersTemplate";
 import type { General } from "@/studio/types";
 
 export default function GetInTouch({ generalData }: { generalData: General }) {
@@ -15,6 +17,7 @@ export default function GetInTouch({ generalData }: { generalData: General }) {
       id="get-in-touch"
       className={twm(pathname.startsWith("/projects/") && "hidden")}
     >
+      <XersEmailTemplate firstName="Yaung Hein" />
       <FadeUp>
         <div className="sm:px-14 sm:pb-14">
           <div className="relative pt-8 sm:pt-[4.5rem] pl-6 sm:pl-[4.5rem] pb-8 sm:pb-10 pr-6 sm:pr-[3.75rem] bg-black text-white sm:rounded-2xl overflow-hidden">
@@ -32,7 +35,7 @@ export default function GetInTouch({ generalData }: { generalData: General }) {
             <div
               className={twm(
                 "absolute sm:top-[4.5rem] left-0 sm:left-[4.5rem] w-full sm:w-[40.44rem] h-[10rem] sm:h-[11.94rem] bg-black blur-[4rem] sm:blur-[8.75rem]",
-                pathname === "/contact" ? "top-28" : "top-5",
+                pathname === "/contact" ? "top-28" : "top-5"
               )}
             />
             <h2 className="relative text-5xl sm:text-[5.25rem] font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.21rem] max-w-[40rem]">
@@ -42,7 +45,10 @@ export default function GetInTouch({ generalData }: { generalData: General }) {
               </AnimatedText>
             </h2>
             <FadeUp>
-              <form className="relative mt-14 flex flex-col gap-4 items-start max-w-[39.5rem] w-full">
+              <form
+                action={sendEmail}
+                className="relative mt-14 flex flex-col gap-4 items-start max-w-[39.5rem] w-full"
+              >
                 <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">
                   <label
                     htmlFor="name"

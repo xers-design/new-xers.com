@@ -11,10 +11,12 @@
     "sanity:start": "sanity start",
     "sanity:build": "sanity build",
     "sanity:deploy": "sanity deploy",
+    "email": "email dev",
     "lint": "next lint"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",
+    "@react-email/components": "0.0.19",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
     "@splittext/react": "^0.6.0",
@@ -27,6 +29,8 @@
     "next-video": "^1.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-email": "2.1.4",
+    "resend": "^3.3.0",
     "sanity": "3",
     "sharp": "^0.33.4",
     "styled-components": "6",
