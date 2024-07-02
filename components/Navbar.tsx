@@ -53,7 +53,7 @@ export default function Navbar({ generalData }: { generalData: General }) {
           onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.9, transition: SPRING_IN }}
           className={twm(
-            'shrink-0 fixed right-14 z-10 w-10 h-10 sm:w-14 sm:h-14 rounded-full',
+            'shrink-0 fixed right-6 sm:right-14 z-10 w-10 h-10 sm:w-14 sm:h-14 rounded-full',
             isOpen ? 'bg-white text-black' : 'bg-black text-white'
           )}
         >

@@ -1,11 +1,11 @@
-import Link from "next/link";
-import TakeARideButton from "@/components/home/TakeARideButton";
-import AnimatedText from "@/components/AnimatedText";
-import FadeUp from "@/components/FadeUp";
+import Link from 'next/link';
+import TakeARideButton from '@/components/home/TakeARideButton';
+import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
 
 export default function SectionHero() {
   return (
-    <section className="relative ">
+    <section className="relative">
       <img
         src="/images/home-hero-bg.svg"
         className="hidden sm:block w-full aspect-[1.58/1] absolute left-0 right-0 top-0"
