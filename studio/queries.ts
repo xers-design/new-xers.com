@@ -1,4 +1,4 @@
-import groq from "groq";
+import groq from 'groq';
 
 export const aboutPageQuery = groq`
 *[_type == "aboutPage" && isActive == true][0] {
@@ -162,6 +162,7 @@ export const homePageQuery = groq`
     services[]{
       title,
       description,
+      scopes,
       "desktopImage": {
         "url": desktopImage.image.asset->url,
         "lqip": desktopImage.image.asset->metadata.lqip,

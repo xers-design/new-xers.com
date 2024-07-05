@@ -1,108 +1,171 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import { motion, useScroll, useAnimate } from "framer-motion";
-import Badge from "@/components/Badge";
-import { SPRING_OUT } from "@/lib/animations/constants";
-import AnimatedText from "@/components/AnimatedText";
-import FadeUp from "@/components/FadeUp";
-import type { HomePage } from "@/studio/types";
+import Image from 'next/image';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { twMerge as twm } from 'tailwind-merge';
+import Badge from '@/components/Badge';
+import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
+import type { HomePage, Service } from '@/studio/types';
+
+import 'swiper/css';
 
 export default function SectionServices({ homePage }: { homePage: HomePage }) {
-  const [scope, animate] = useAnimate();
-  const { scrollYProgress } = useScroll({
-    target: scope,
-    offset: ["start start", "end end"],
-  });
-  const [serviceIndex, setServiceIndex] = useState(0);
+  const servicesContainer = useRef(null);
+  const slider = useRef<any>(null);
+  const [showSlider, setShowSlider] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(0);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springX = useSpring(mouseX, { stiffness: 300, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 300, damping: 30 });
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      const slider = document.getElementById('services-slider');
+      if (slider) {
+        const { width, height } = slider.getBoundingClientRect();
+        mouseX.set(e.clientX - width / 2);
+        mouseY.set(e.clientY - height / 2);
+      }
+    },
+    [mouseX, mouseY]
+  );
 
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (progress) => {
-      const servicesLength = homePage.services.length;
-      const threshold = 1 / servicesLength;
-      const newServiceIndex = Math.min(
-        Math.floor(progress / threshold),
-        servicesLength - 1,
-      );
-      if (newServiceIndex !== serviceIndex) setServiceIndex(newServiceIndex);
-    });
-    return unsubscribe;
-  }, [serviceIndex]);
+    document.addEventListener('mousemove', handleMouseMove);
+    return () => document.removeEventListener('mousemove', handleMouseMove);
+  }, [handleMouseMove]);
 
   useEffect(() => {
-    animate(
-      ".service-container",
-      { x: `-${serviceIndex * 100}%` },
-      { ...SPRING_OUT, duration: 0.6 },
-    );
-  }, [serviceIndex]);
+    if (slider.current) {
+      slider.current.swiper.slideTo(hoveredIndex);
+    }
+  }, [hoveredIndex]);
+
+  const sliderImages = homePage.services.map((service) => service.desktopImage);
 
   return (
-    <motion.section
-      ref={scope}
-      style={{ height: `${homePage.services.length * 100 * 1.2}vh` }}
-      className="relative hidden sm:block"
-    >
-      <div className="sticky top-0">
-        <div className="pt-0 sm:pt-14 relative">
-          <div className="hidden sm:flex items-center gap-4 mb-6 px-14">
-            <h2 className="text-2xl font-medium leading-[1.1] -tracking-[0.03rem]">
-              <AnimatedText>Services</AnimatedText>
-            </h2>
-            <FadeUp>
-              <div className="relative w-[13.75rem] h-1 rounded-full bg-xers-cloudy-blue overflow-hidden">
-                <motion.div
-                  style={{ scaleX: scrollYProgress }}
-                  className="absolute inset-0 right-auto w-full h-full bg-black origin-left"
-                />
-              </div>
-            </FadeUp>
+    <section className="hidden sm:block pt-[7.5rem]">
+      <div className="padding-global relative flex items-start gap-16">
+        <div className="sticky top-14">
+          <h2 className="text-2xl font-medium leading-[1.1] -tracking-[0.03rem]">
+            <AnimatedText>Services</AnimatedText>
+          </h2>
+          <div className="text-2xl font-normal leading-[1.1] -tracking-[0.03rem] mt-4 w-[15rem]">
+            <AnimatedText className="pb-1">
+              Dream to go digital? we will be there.
+            </AnimatedText>
           </div>
+          <FadeUp>
+            <div className="w-[7.13rem] aspect-square mt-[5.65rem]">
+              <Badge image="/images/badge-agency.svg" />
+            </div>
+          </FadeUp>
+        </div>
 
-          <div className="overflow-hidden flex">
-            <div className="service-container relative flex items-start w-full">
-              {homePage.services.map((service, i) => (
-                <div key={i} className="relative px-14 grow !min-w-full">
-                  <div className="">
-                    <h3 className="max-w-[20rem] sm:max-w-full text-[2.5rem] sm:text-7xl font-medium leading-[1.1] -tracking-[0.1rem] sm:-tracking-[0.18rem] mb-6">
-                      <AnimatedText className="pb-2">
-                        {service.title}
-                      </AnimatedText>
-                    </h3>
-                    <div className="text-lg sm:text-2xl font-normal leading-[1.5] max-w-[58.7rem] mb-16">
-                      <AnimatedText>{service.description}</AnimatedText>
-                    </div>
-                  </div>
+        <motion.div
+          ref={servicesContainer}
+          onMouseEnter={() => setShowSlider(true)}
+          onMouseLeave={() => setShowSlider(false)}
+          className="relative divide-y divide-black divide-opacity-10 -mt-20"
+        >
+          {homePage.services.map((service, index) => (
+            <motion.div key={index} onMouseEnter={() => setHoveredIndex(index)}>
+              <Service
+                service={service}
+                index={index}
+                hoveredIndex={hoveredIndex}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
 
-                  <FadeUp>
-                    <div className="relative">
-                      <div
-                        style={{
-                          aspectRatio: `${service.desktopImage.aspectRatio}/1`,
-                        }}
-                        className="hidden sm:block w-full relative overflow-hidden rounded-xl"
-                      >
-                        <Image
-                          src={service.desktopImage.url}
-                          alt={service.desktopImage.caption}
-                          placeholder="blur"
-                          blurDataURL={service.desktopImage.lqip}
-                          fill={true}
-                        />
-                      </div>
-                    </div>
-                  </FadeUp>
+        <motion.div
+          id="services-slider"
+          className="pointer-events-none fixed top-0 left-0"
+          style={{ x: springX, y: springY }}
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{
+            scale: showSlider ? 1 : 0.5,
+            opacity: showSlider ? 1 : 0,
+          }}
+        >
+          <Swiper
+            ref={slider}
+            slidesPerView={1}
+            direction="vertical"
+            className="!w-[18.75rem] !aspect-[0.75/1]"
+          >
+            {sliderImages.map((image, i) => (
+              <SwiperSlide key={i}>
+                <div className="relative w-full h-full">
+                  <Image
+                    alt={image.caption}
+                    src={image.url}
+                    fill={true}
+                    placeholder="blur"
+                    blurDataURL={image.lqip}
+                  />
                 </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+type ServiceProps = {
+  service: Service;
+  index: number;
+  hoveredIndex: number;
+};
+
+function Service({ service, index, hoveredIndex }: ServiceProps) {
+  return (
+    <div className="py-16 flex gap-12">
+      <div className="mt-2">
+        <FadeUp>
+          <div
+            className={twm(
+              'text-2xl leading-[1.5] transition',
+              index === hoveredIndex && 'text-xers-blue'
+            )}
+          >
+            (0{index + 1})
+          </div>
+        </FadeUp>
+      </div>
+      <div className="grid gap-8">
+        <h3 className="text-5xl sm:text-7xl font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.18rem]">
+          <AnimatedText className="pb-2">{service.title}</AnimatedText>
+        </h3>
+        {service.scopes.length > 0 && (
+          <FadeUp>
+            <div
+              className={twm(
+                'flex items-center gap-5 transition',
+                index === hoveredIndex ? 'opacity-100' : 'opacity-30'
+              )}
+            >
+              {service.scopes.map((scope, i) => (
+                <React.Fragment key={i}>
+                  <div>{scope}</div>
+                  {i !== service.scopes.length - 1 && (
+                    <div className="hidden sm:block w-2 h-2 bg-[#D9D9D9] rounded-full -mb-1" />
+                  )}
+                </React.Fragment>
               ))}
             </div>
-          </div>
-        </div>
-
-        <div className="hidden sm:block w-[7.13rem] aspect-square absolute -bottom-10 right-20 z-10">
-          <Badge image="/images/badge-agency.svg" />
-        </div>
+          </FadeUp>
+        )}
       </div>
-    </motion.section>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
-import Video from "@/components/Video";
-import AnimatedText from "@/components/AnimatedText";
-import FadeUp from "@/components/FadeUp";
-import type { HomePage } from "@/studio/types";
+import Video from '@/components/Video';
+import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
+import type { HomePage } from '@/studio/types';
 
 export default function SectionDesignDialogues({
   homePage,
@@ -15,9 +15,9 @@ export default function SectionDesignDialogues({
           <h2 className="text-base sm:text-2xl font-medium leading-[1.1] -tracking-[0.04rem] sm:-tracking-[0.03rem]">
             <AnimatedText>Design Dialogues</AnimatedText>
           </h2>
-          <h3 className="text-5xl sm:text-7xl font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.18rem]">
+          <h3 className="text-5xl sm:text-7xl font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.18rem] w-full sm:w-[32rem]">
             <AnimatedText className="pb-1 sm:pb-2">
-              Let’s grow together...
+              Learn UX Design with xers.
             </AnimatedText>
           </h3>
           <div className="text-base sm:text-2xl font-normal leading-[1.5] max-w-[33.88rem] mt-2 sm:mt-0">
@@ -31,7 +31,7 @@ export default function SectionDesignDialogues({
             <Video video={homePage.videoTwo} />
           </div>
 
-          <div className="absolute top-0 right-0 sm:static sm:mt-[10rem] w-[4.56rem] sm:w-[15.94rem] h-[2.18rem] sm:h-[7.44rem]">
+          <div className="absolute top-0 right-0 sm:static sm:mt-[7rem] w-[4.56rem] sm:w-[15.94rem] h-[2.18rem] sm:h-[7.44rem]">
             <FadeUp>
               <img
                 src="/images/design-dialogues.svg"
