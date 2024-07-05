@@ -32,7 +32,8 @@ export default function GetInTouch({ generalData }: { generalData: General }) {
             {pathname === '/contact' && <div className="pt-24 sm:pt-0" />}
             <div
               className={twm(
-                'absolute sm:top-[4.5rem] left-0 sm:left-[4.5rem] w-full sm:w-[40.44rem] h-[10rem] sm:h-[11.94rem] bg-black blur-[4rem] sm:blur-[8.75rem]',
+                'absolute sm:top-[1rem] left-0 sm:left-[2.5rem] w-full sm:w-[40.44rem] h-[10rem] sm:h-[11.94rem] bg-black blur-[4rem] sm:blur-[6rem]',
+                // 'absolute sm:top-[4.5rem] left-0 sm:left-[4.5rem] w-full sm:w-[40.44rem] h-[10rem] sm:h-[11.94rem] bg-black blur-[4rem] sm:blur-[8.75rem]',
                 pathname === '/contact' ? 'top-28' : 'top-5'
               )}
             />
