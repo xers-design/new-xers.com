@@ -37,7 +37,7 @@ export default function SectionProjects({ homePage }: { homePage: HomePage }) {
           </FadeUp>
           <FadeUp>
             <Link href="/projects" className="hidden sm:block">
-              <div className="text-2xl font-medium leading-[1.1] -tracking-[0.06rem] text-xers-blue border border-xers-blue rounded-full px-8 py-6 mb-4">
+              <div className="text-2xl font-medium leading-[1.1] -tracking-[0.06rem] hover:bg-xers-blue text-xers-blue hover:text-white border border-xers-blue rounded-full px-8 py-6 mb-4 transition">
                 View All Projects
               </div>
             </Link>

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { useAnimate } from "framer-motion";
+import { useEffect } from 'react';
+import { useAnimate } from 'framer-motion';
 
 export default function TakeARideButton() {
   const [scope, animate] = useAnimate();
@@ -14,30 +14,30 @@ export default function TakeARideButton() {
     const offsetPosition = elementPosition - offset;
     window.scrollTo({
       top: offsetPosition,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   useEffect(() => {
     animate(
       [
-        [".dots", { opacity: 1 }, { duration: 0.2 }],
-        [".dot:nth-of-type(1)", { opacity: 0.06 }],
-        [".dot:nth-of-type(2)", { opacity: 0.3 }, { at: "-0.1" }],
-        [".dot:nth-of-type(3)", { opacity: 1 }, { at: "-0.1" }],
-        [".dots", { opacity: 0 }, { duration: 0.2 }],
+        ['.dots', { opacity: 1 }, { duration: 0.2 }],
+        ['.dot:nth-of-type(1)', { opacity: 0.06 }],
+        ['.dot:nth-of-type(2)', { opacity: 0.3 }, { at: '-0.1' }],
+        ['.dot:nth-of-type(3)', { opacity: 1 }, { at: '-0.1' }],
+        ['.dots', { opacity: 0 }, { duration: 0.2 }],
       ],
-      { repeat: Infinity, duration: 2 },
+      { repeat: Infinity, duration: 2 }
     );
   }, []);
 
   return (
-    <button onClick={() => move("logos")} className="hidden sm:block">
+    <button onClick={() => move('logos')} className="hidden group sm:block">
       <div className="flex items-center gap-4 text-xers-blue">
         <div className="text-2xl font-medium ml-4 -tracking-[0.03rem]">
           Take a ride
         </div>
-        <div className="relative w-20 aspect-square grid place-items-center border border-xers-blue rounded-full">
+        <div className="relative w-20 aspect-square grid place-items-center border border-xers-blue rounded-full ">
           <div
             ref={scope}
             className="absolute -top-8 left-1/2 -translate-x-1/2"

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Button from '@/components/Button';
 import TakeARideButton from '@/components/home/TakeARideButton';
 import AnimatedText from '@/components/AnimatedText';
 import FadeUp from '@/components/FadeUp';
@@ -33,50 +34,7 @@ export default function SectionHero() {
         </div>
         <div className="flex items-center justify-between mt-8 sm:mt-20">
           <FadeUp>
-            <Link href="/">
-              <div className="bg-black rounded-full p-4 flex items-center gap-11 sm:gap-[5.3rem] text-white">
-                <div className="text-xl sm:text-2xl font-medium ml-2 sm:ml-4 -tracking-[0.025rem] sm:-tracking-[0.03rem]">
-                  Contact us
-                </div>
-
-                <div className="w-10 sm:w-16 aspect-square rounded-full bg-xers-blue grid place-items-center">
-                  <div className="w-6 aspect-square hidden sm:block">
-                    <svg
-                      width="100%"
-                      height="100%"
-                      viewBox="0 0 28 28"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2 14H26M26 14L14 2M26 14L14 26"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div className="w-4 aspect-square sm:hidden">
-                    <svg
-                      width="100%"
-                      height="100%"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2 10H18M18 10L10 2M18 10L10 18"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <Button to="contact" label="Contact us" />
           </FadeUp>
           <FadeUp>
             <TakeARideButton />
