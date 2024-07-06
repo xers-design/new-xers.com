@@ -37,7 +37,7 @@ export default function TakeARideButton() {
         <div className="text-2xl font-medium ml-4 -tracking-[0.03rem]">
           Take a ride
         </div>
-        <div className="relative w-20 aspect-square grid place-items-center border border-xers-blue rounded-full ">
+        <div className="relative w-20 aspect-square grid place-items-center border border-xers-blue rounded-full group-hover:bg-xers-blue group-hover:text-white transition">
           <div
             ref={scope}
             className="absolute -top-8 left-1/2 -translate-x-1/2"
@@ -48,7 +48,38 @@ export default function TakeARideButton() {
               <div className="dot w-1 h-1 aspect-square shrink-0 bg-xers-blue rounded-full opacity-0" />
             </div>
           </div>
-          <div className="relative w-6 aspect-square">
+
+          <img
+            src="/images/button-bg.svg"
+            alt=""
+            className="absolute inset-0 scale-[2] translate-x-10 group-hover:translate-x-5 translate-y-20 group-hover:translate-y-8 rotate-[12deg] group-hover:rotate-[0deg] duration-300 transition"
+          />
+
+          <div className="w-6 aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:text-xers-blue group-hover:translate-y-[100%] group-hover:opacity-0 duration-300 transition">
+            <svg
+              width="100%"
+              height="100%"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5V19"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M19 12L12 19L5 12"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <div className="w-6 aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[200%] group-hover:text-white group-hover:-translate-y-[50%] opacity-0 group-hover:opacity-100 duration-300 transition">
             <svg
               width="100%"
               height="100%"

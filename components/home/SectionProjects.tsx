@@ -66,7 +66,12 @@ export default function SectionProjects({ homePage }: { homePage: HomePage }) {
           </FadeUp>
           <FadeUp>
             <Link href="/projects" className="hidden sm:block">
-              <div className="text-2xl font-medium leading-[1.1] -tracking-[0.06rem] hover:bg-xers-blue text-xers-blue hover:text-white border border-xers-blue rounded-full px-8 py-6 mb-4 transition">
+              <div className="group relative overflow-hidden text-2xl font-medium leading-[1.1] -tracking-[0.06rem] hover:bg-xers-blue text-xers-blue hover:text-white border border-xers-blue rounded-full px-8 py-6 mb-4 transition">
+                <img
+                  src="/images/button-bg.svg"
+                  alt=""
+                  className="absolute inset-0 scale-[1.3] translate-x-10 group-hover:translate-x-0 translate-y-6 group-hover:-translate-y-2 rotate-[12deg] group-hover:rotate-[0deg] transition duration-300"
+                />
                 View All Projects
               </div>
             </Link>
