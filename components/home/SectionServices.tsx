@@ -142,8 +142,8 @@ function Service({ service, index, hoveredIndex }: ServiceProps) {
           </div>
         </FadeUp>
       </div>
-      <div className="grid gap-8">
-        <h3 className="text-5xl sm:text-7xl font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.18rem]">
+      <div className="grid gap-8 w-full">
+        <h3 className="text-5xl sm:text-7xl font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.18rem] w-full">
           <AnimatedText className="pb-2">{service.title}</AnimatedText>
         </h3>
         {service.scopes.length > 0 && (

@@ -11,19 +11,19 @@ export default function Template({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setTimeout(() => {
       setLoaded(true);
-    }, 500);
+    }, 1000);
   }, []);
 
   const parentVariants = {
     initial: { opacity: 1, transition: { duration: 0.5 } },
-    animate: { opacity: 0, transition: { delay: 1 } },
+    animate: { opacity: 0, transition: { delay: 1.5 } },
   };
 
   const firstOddVariants = {
     initial: { y: '0%' },
     animate: {
       y: '-100%',
-      transition: { delay: 0.5, ...SPRING_IN, duration: 0.5 },
+      transition: { delay: 0.3, ...SPRING_IN, duration: 0.75 },
     },
   };
 
@@ -31,7 +31,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     initial: { y: '0%' },
     animate: {
       y: '100%',
-      transition: { delay: 0.5, ...SPRING_IN, duration: 0.5 },
+      transition: { delay: 0.3, ...SPRING_IN, duration: 0.75 },
     },
   };
 
@@ -39,7 +39,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     initial: { y: '100%' },
     animate: {
       y: '0%',
-      transition: { delay: 0.5, ...SPRING_IN, duration: 0.5 },
+      transition: { delay: 0.3, ...SPRING_IN, duration: 0.75 },
     },
   };
 
@@ -47,7 +47,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     initial: { y: '-100%' },
     animate: {
       y: '0%',
-      transition: { delay: 0.5, ...SPRING_IN, duration: 0.5 },
+      transition: { delay: 0.3, ...SPRING_IN, duration: 0.75 },
     },
   };
 

@@ -1,21 +1,21 @@
-import Link from "next/link";
-import Image from "next/image";
-import { sanityClient } from "@/studio/lib/client";
-import { aboutPageQuery } from "@/studio/queries";
-import SectionBros from "@/components/about/SectionBros";
-import MovingText from "@/components/MovingText";
-import KnowUsBetterButton from "@/components/about/KnowUsBetterButton";
-import SectionVision from "@/components/about/SectionVision";
-import AnimatedText from "@/components/AnimatedText";
-import FadeUp from "@/components/FadeUp";
-import type { AboutPage } from "@/studio/types";
+import Link from 'next/link';
+import Image from 'next/image';
+import { sanityClient } from '@/studio/lib/client';
+import { aboutPageQuery } from '@/studio/queries';
+import SectionBros from '@/components/about/SectionBros';
+import MovingText from '@/components/MovingText';
+import KnowUsBetterButton from '@/components/about/KnowUsBetterButton';
+import SectionVision from '@/components/about/SectionVision';
+import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
+import type { AboutPage } from '@/studio/types';
 
 const words = [
-  { text: "user", color: "text-black", dot: false },
-  { text: "experience", color: "text-black", dot: false },
-  { text: "design", color: "text-xers-purple", dot: true },
-  { text: "design", color: "text-black", dot: false },
-  { text: "spirit", color: "text-xers-green", dot: true },
+  { text: 'user', color: 'text-black', dot: false },
+  { text: 'experience', color: 'text-black', dot: false },
+  { text: 'design', color: 'text-xers-purple', dot: true },
+  { text: 'design', color: 'text-black', dot: false },
+  { text: 'spirit', color: 'text-xers-green', dot: true },
 ];
 
 export default async function About() {
@@ -34,7 +34,7 @@ export default async function About() {
           className="sm:hidden w-full aspect-[0.67/1] absolute left-0 right-0 top-0"
           alt=""
         />
-        <div className="relative padding-global pt-[8.38rem] sm:pt-[9.88rem]">
+        <div className="relative padding-global pt-[8.38rem] sm:pt-[9.88rem] overflow-hidden">
           <h1 className="text-[3.75rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.32rem] max-w-[70rem]">
             <AnimatedText className="pb-1 sm:pb-3">
               {aboutPage.title}

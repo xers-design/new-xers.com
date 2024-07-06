@@ -22,7 +22,7 @@ export default function SectionHero() {
         className="hidden sm:block w-20 aspect-[0.4/1] absolute right-0 top-[12.5rem]"
         alt=""
       />
-      <div className="relative padding-global pt-[8.38rem] sm:pt-44 pb-14 sm:pb-[7.5rem]">
+      <div className="relative padding-global pt-[8.38rem] sm:pt-44 pb-14 sm:pb-[7.5rem] overflow-hidden">
         <div>
           <h1 className="text-[3.75rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.15rem] sm:-tracking-[0.32rem]">
             <AnimatedText className="pb-1 sm:pb-3">
