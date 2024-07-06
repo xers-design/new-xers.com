@@ -93,7 +93,7 @@ export default function SectionProjects({ homePage }: { homePage: HomePage }) {
 
       <motion.div
         id="project-cursor"
-        className="fixed z-50 top-0 left-0 w-[9.38rem] aspect-square rounded-full bg-white grid place-items-center pointer-events-none"
+        className="hidden fixed z-50 top-0 left-0 w-[9.38rem] aspect-square rounded-full bg-white sm:grid place-items-center pointer-events-none"
         style={{ x: springX, y: springY }}
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{
