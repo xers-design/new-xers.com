@@ -99,7 +99,7 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
             ref={slider}
             slidesPerView={1}
             direction="vertical"
-            className="!w-[18.75rem] !aspect-[0.75/1]"
+            className="!w-[9.38rem] !aspect-[0.75/1]"
           >
             {sliderImages.map((image, i) => (
               <SwiperSlide key={i}>
