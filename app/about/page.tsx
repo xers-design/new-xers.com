@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import Image from "next/image";
 import { sanityClient } from "@/studio/lib/client";
 import { aboutPageQuery } from "@/studio/queries";
@@ -20,7 +18,11 @@ const words = [
 ];
 
 export default async function About() {
-  const aboutPage: AboutPage = await sanityClient.fetch(aboutPageQuery);
+  const aboutPage: AboutPage = await sanityClient.fetch(
+    aboutPageQuery,
+    {},
+    { cache: "no-store" }
+  );
 
   return (
     <>
