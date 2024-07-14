@@ -17,7 +17,7 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
 
   const totalServices = homePage.services.length;
   const currentIndex = homePage.services.findIndex(
-    (service) => service.title === currentService.title,
+    (service) => service.title === currentService.title
   );
   const isAtFirstService = currentService.title === homePage.services[0].title;
   const isAtLastService =
@@ -57,7 +57,7 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
   useOnClickOutside(bottomNavRefTwo, () => setIsOpen(false));
 
   return (
-    <motion.section ref={sectionRef} className="relative sm:hidden">
+    <motion.section ref={sectionRef} className="relative sm:hidden z-10">
       <div className="sticky top-0">
         <div className="pt-0 sm:pt-[7.5rem] relative">
           <div className="hidden sm:flex items-center gap-4 mb-6 px-6">
@@ -191,7 +191,7 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
                   "w-full text-left text-2xl font-medium leading-[1.2] -tracking-[0.03rem] gap-[0.63rem] truncate border-l-[0.38rem] px-4",
                   service.title === currentService.title
                     ? "border-white"
-                    : "border-transparent opacity-50",
+                    : "border-transparent opacity-50"
                 )}
               >
                 {service.title}
