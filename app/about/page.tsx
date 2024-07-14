@@ -1,21 +1,22 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { sanityClient } from '@/studio/lib/client';
-import { aboutPageQuery } from '@/studio/queries';
-import SectionBros from '@/components/about/SectionBros';
-import MovingText from '@/components/MovingText';
-import KnowUsBetterButton from '@/components/about/KnowUsBetterButton';
-import SectionVision from '@/components/about/SectionVision';
-import AnimatedText from '@/components/AnimatedText';
-import FadeUp from '@/components/FadeUp';
-import type { AboutPage } from '@/studio/types';
+export const dynamic = "force-dynamic";
+
+import Image from "next/image";
+import { sanityClient } from "@/studio/lib/client";
+import { aboutPageQuery } from "@/studio/queries";
+import SectionBros from "@/components/about/SectionBros";
+import MovingText from "@/components/MovingText";
+import KnowUsBetterButton from "@/components/about/KnowUsBetterButton";
+import SectionVision from "@/components/about/SectionVision";
+import AnimatedText from "@/components/AnimatedText";
+import FadeUp from "@/components/FadeUp";
+import type { AboutPage } from "@/studio/types";
 
 const words = [
-  { text: 'user', color: 'text-black', dot: false },
-  { text: 'experience', color: 'text-black', dot: false },
-  { text: 'design', color: 'text-xers-purple', dot: true },
-  { text: 'design', color: 'text-black', dot: false },
-  { text: 'spirit', color: 'text-xers-green', dot: true },
+  { text: "user", color: "text-black", dot: false },
+  { text: "experience", color: "text-black", dot: false },
+  { text: "design", color: "text-xers-purple", dot: true },
+  { text: "design", color: "text-black", dot: false },
+  { text: "spirit", color: "text-xers-green", dot: true },
 ];
 
 export default async function About() {
