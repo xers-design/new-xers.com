@@ -135,7 +135,7 @@ export default function SectionServices({ homePage }: { homePage: HomePage }) {
             <div className="bg-white rounded-full text-xers-blue px-2">
               <span>{currentIndex + 1}</span>/<span>{totalServices}</span>
             </div>
-            <div className="truncate">Specialized Design Systems</div>
+            <div className="truncate">{currentService.title}</div>
           </button>
 
           <motion.button
