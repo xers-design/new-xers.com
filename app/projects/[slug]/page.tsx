@@ -13,9 +13,11 @@ export default async function ProjectDetail({
 }: {
   params: { slug: string };
 }) {
-  const project: ProjectDetail = await sanityClient.fetch(projectDetailQuery, {
-    slug,
-  });
+  const project: ProjectDetail = await sanityClient.fetch(
+    projectDetailQuery,
+    { slug },
+    { cache: "no-store" }
+  );
 
   return (
     <>

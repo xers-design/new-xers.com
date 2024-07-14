@@ -6,7 +6,11 @@ import AnimatedText from "@/components/AnimatedText";
 import type { Project } from "@/studio/types";
 
 export default async function Projects() {
-  const projects: Project[] = await sanityClient.fetch(projectsQuery);
+  const projects: Project[] = await sanityClient.fetch(
+    projectsQuery,
+    {},
+    { cache: "no-store" }
+  );
 
   return (
     <section>
