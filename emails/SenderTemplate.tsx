@@ -61,8 +61,11 @@ export default function XersEmailTemplate({
                 alt="Xers Logo"
               />
               <Heading style={h1}>
-                A Submission
-                <br /> Has Been Received!
+                Hi {name.split(' ')[0]},
+                <br />
+                Your Submission
+                <br />
+                Has Been Received!
               </Heading>
             </Section>
             <Section style={bodyWrapper}>

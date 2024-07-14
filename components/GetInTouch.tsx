@@ -1,16 +1,20 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useState, useRef, useEffect } from 'react';
 import { twMerge as twm } from 'tailwind-merge';
 import Button from '@/components/Button';
 import SocialIcons from '@/components/SocialIcons';
 import AnimatedText from '@/components/AnimatedText';
 import FadeUp from '@/components/FadeUp';
-import sendEmail from '@/app/actions/send-email';
+import handleSubmit from '@/app/actions/handle-submit';
 import type { General } from '@/studio/types';
 
 export default function GetInTouch({ generalData }: { generalData: General }) {
   const pathname = usePathname();
+  const form = useRef<HTMLFormElement>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFail, setIsFail] = useState(false);
 
   return (
     <section
@@ -34,19 +38,32 @@ export default function GetInTouch({ generalData }: { generalData: General }) {
             <div
               className={twm(
                 'absolute sm:top-[1rem] left-0 sm:left-[2.5rem] w-full sm:w-[40.44rem] h-[10rem] sm:h-[11.94rem] bg-black blur-[4rem] sm:blur-[6rem]',
-                // 'absolute sm:top-[4.5rem] left-0 sm:left-[4.5rem] w-full sm:w-[40.44rem] h-[10rem] sm:h-[11.94rem] bg-black blur-[4rem] sm:blur-[8.75rem]',
                 pathname === '/contact' ? 'top-28' : 'top-5'
               )}
             />
             <h2 className="relative text-5xl sm:text-[5.25rem] font-medium leading-[1.1] -tracking-[0.12rem] sm:-tracking-[0.21rem] max-w-[40rem]">
-              {/* Let’s get in touch with us */}
               <AnimatedText className="pb-1">
                 Let’s get in touch with us
               </AnimatedText>
             </h2>
             <FadeUp>
               <form
-                action={sendEmail}
+                ref={form}
+                action={async (formData) => {
+                  const button = document.querySelector('form button .label');
+                  button!.textContent = 'Submitting ...';
+
+                  const { success, error } = await handleSubmit(formData);
+                  if (error) {
+                    setIsFail(true);
+                    button!.textContent = 'Submit contact form';
+                  }
+                  if (success) {
+                    setIsSuccess(true);
+                    form.current!.reset();
+                    button!.textContent = 'Submit contact form';
+                  }
+                }}
                 className="relative mt-14 flex flex-col gap-4 items-start max-w-[39.5rem] w-full"
               >
                 <div className="bg-xers-off-black rounded-lg grid gap-2 w-full px-6 py-3 sm:py-5">
@@ -93,6 +110,17 @@ export default function GetInTouch({ generalData }: { generalData: General }) {
                   />
                 </div>
                 <Button label="Submit contact form" color="blue" />
+                {isSuccess && (
+                  <div className="text-xers-green absolute -bottom-10 left-8">
+                    Your message has been received.
+                  </div>
+                )}
+                {isFail && (
+                  <div className="text-red-500 absolute -bottom-10 left-8">
+                    Sorry. Something went wrong in the server. Please try again
+                    later.
+                  </div>
+                )}
               </form>
             </FadeUp>
             <div className="mt-16 hidden sm:flex justify-end">

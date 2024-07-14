@@ -59,7 +59,7 @@ export default function Button(props: ButtonProps) {
           className="absolute inset-0 scale-[1.3] translate-x-10 group-hover:translate-x-0 translate-y-6 group-hover:-translate-y-2 rotate-[12deg] group-hover:rotate-[0deg] transition duration-300"
         />
 
-        <div className="relative text-xl sm:text-2xl font-medium mx-2 sm:mx-4 -tracking-[0.025rem] sm:-tracking-[0.03rem]">
+        <div className="label relative text-xl sm:text-2xl font-medium mx-2 sm:mx-4 -tracking-[0.025rem] sm:-tracking-[0.03rem]">
           {props.label}
         </div>
 
