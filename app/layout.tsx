@@ -1,3 +1,5 @@
+export const fetchCache = "force-no-store"; // disable cache
+
 import type { Metadata } from "next";
 import font from "next/font/local";
 import { twMerge as twm } from "tailwind-merge";
