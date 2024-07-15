@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { sanityClient } from "@/studio/lib/client";
 import { projectsQuery } from "@/studio/queries";
 import Card from "@/components/projects/Card";
@@ -30,9 +31,11 @@ export default async function Projects() {
               />
             ))}
           </div>
-          <div className="hidden grow sticky top-[19.25rem] sm:flex justify-end w-[10rem] aspect-square">
-            <Badge image="/images/badge-contact.svg" />
-          </div>
+          <Link href="/contact">
+            <div className="hidden grow sticky top-[19.25rem] sm:flex justify-end w-[10rem] aspect-square">
+              <Badge image="/images/badge-contact.svg" />
+            </div>
+          </Link>
         </div>
       </div>
     </section>

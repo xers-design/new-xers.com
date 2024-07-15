@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Image from "next/image";
 import { sanityClient } from "@/studio/lib/client";
 import { aboutPageQuery } from "@/studio/queries";
