@@ -1,4 +1,4 @@
-import groq from 'groq';
+import groq from "groq";
 
 export const aboutPageQuery = groq`
 *[_type == "aboutPage" && isActive == true][0] {
@@ -102,29 +102,20 @@ export const projectDetailQuery = groq`
         "caption": challengeImage.caption,
         "aspectRatio": challengeImage.image.asset->metadata.dimensions.aspectRatio
     },
-    "outroImageDesktop": {
-        "url": outroImageDesktop.image.asset->url,
-        "lqip": outroImageDesktop.image.asset->metadata.lqip,
-        "caption": outroImageDesktop.caption,
-        "aspectRatio": outroImageDesktop.image.asset->metadata.dimensions.aspectRatio
-    },
-    "outroImageMobile": {
-        "url": outroImageMobile.image.asset->url,
-        "lqip": outroImageMobile.image.asset->metadata.lqip,
-        "caption": outroImageMobile.caption,
-        "aspectRatio": outroImageMobile.image.asset->metadata.dimensions.aspectRatio
-    },
-    "previousProject": *[_type == "project" && _createdAt < ^._createdAt] | order(_createdAt desc)[0] {
-        name,
-        slug,
-    },
-    "nextProject": *[_type == "project" && _createdAt > ^._createdAt] | order(_createdAt asc)[0] {
-        name,
-        slug,
-    },
-    "firstProject": *[_type == "project"] | order(_createdAt asc)[0] {
-        name,
-        slug,
+    "nextProject": {
+        "slug": nextProject->slug,
+        "featuredImage": {
+            "url": nextProject->featuredImage.image.asset->url,
+            "lqip": nextProject->featuredImage.image.asset->metadata.lqip,
+            "caption": nextProject->featuredImage.caption,
+            "aspectRatio": nextProject->featuredImage.image.asset->metadata.dimensions.aspectRatio
+        },
+        "featuredImageMobile": {
+            "url": nextProject->featuredImageMobile.image.asset->url,
+            "lqip": nextProject->featuredImageMobile.image.asset->metadata.lqip,
+            "caption": nextProject->featuredImageMobile.caption,
+            "aspectRatio": nextProject->featuredImageMobile.image.asset->metadata.dimensions.aspectRatio
+        }
     }
 }  
 `;

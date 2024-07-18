@@ -112,8 +112,6 @@ export interface ProjectDetail {
   challenges: Challenge[];
   _id: string;
   _rev: string;
-  outroImageDesktop: Image;
-  outroImageMobile: Image;
   logo: Image;
   slug: Slug;
   slogan: string;
@@ -121,17 +119,10 @@ export interface ProjectDetail {
   devPartner: string;
   client: string;
   market: string;
-  previousProject: {
-    name: string;
-    slug: Slug;
-  };
   nextProject: {
-    name: string;
     slug: Slug;
-  };
-  firstProject: {
-    name: string;
-    slug: Slug;
+    featuredImage: Image;
+    featuredImageMobile: Image;
   };
 }
 
@@ -160,7 +151,7 @@ export interface HomePage {
 }
 
 export interface SocialLink {
-  icon: Omit<Image, 'aspectRatio, caption'>;
+  icon: Omit<Image, "aspectRatio, caption">;
   label: string;
   to: string;
   _key: string;
