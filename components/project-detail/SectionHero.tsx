@@ -27,7 +27,7 @@ export default function SectionHero({ project }: { project: ProjectDetail }) {
         />
       </div>
 
-      <div className="padding-global relative pt-[6rem] sm:pt-[8.13rem] pb-14 sm:pb-[15.63rem] flex flex-col h-full sm:block">
+      <div className="padding-global relative pt-[7rem] sm:pt-[9rem] pb-14 sm:pb-[15.63rem] flex flex-col h-full sm:block">
         <FadeUp>
           <div
             style={{ aspectRatio: `${project.logo.aspectRatio}/1` }}
@@ -42,7 +42,7 @@ export default function SectionHero({ project }: { project: ProjectDetail }) {
             />
           </div>
         </FadeUp>
-        <h1 className="mt-auto text-[4rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.16rem] sm:-tracking-[0.32rem] max-w-[35.31rem]">
+        <h1 className="mt-auto sm:mt-8 text-[4rem] sm:text-9xl font-medium leading-[1.1] -tracking-[0.16rem] sm:-tracking-[0.32rem] max-w-[50rem]">
           <AnimatedText>{project.slogan}</AnimatedText>
         </h1>
       </div>

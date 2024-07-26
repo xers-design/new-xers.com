@@ -14,7 +14,7 @@ export default function SectionInformation({
       <div className="padding-global relative pt-9 sm:pt-[4.5rem] pb-20 sm:pb-[11.25rem] sm:flex items-start gap-5">
         <div className="grow">
           <h2 className="relative text-[2.5rem] sm:text-[5.25rem] font-medium leading-[1.1] -tracking-[0.1rem] sm:-tracking-[0.21rem]">
-            <AnimatedText>{project.name}</AnimatedText>
+            <AnimatedText className="pb-1">{project.name}</AnimatedText>
           </h2>
           <div className="grid sm:grid-cols-2 gap-10 mt-12 sm:mt-16">
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">

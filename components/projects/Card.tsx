@@ -19,12 +19,12 @@ export default function Card({
       <div
         className={twm(
           "flex flex-col-reverse sm:flex-row justify-between gap-6 sm:gap-12 bg-xers-off-white p-6 sm:p-12 rounded-2xl sm:rounded-[2rem] w-full sm:w-[69.19rem]",
-          shouldReverse && "sm:flex-row-reverse",
+          shouldReverse && "sm:flex-row-reverse"
         )}
       >
         <div className="flex flex-col gap-2 sm:gap-9 w-full sm:w-[19.81rem]">
           <h2 className="min-w-full text-[2.5rem] sm:text-[4rem] font-medium leading-[1.1] -tracking-[0.1rem] sm:-tracking-[0.16rem]">
-            <AnimatedText>{project.name}</AnimatedText>
+            <AnimatedText className="pb-1 sm:pb-0">{project.name}</AnimatedText>
           </h2>
           <div className="text-lg sm:text-xl font-normal leading-[1.5] mb-auto">
             <AnimatedText>{project.description}</AnimatedText>
