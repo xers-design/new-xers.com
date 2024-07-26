@@ -31,11 +31,11 @@ export default async function Projects() {
               />
             ))}
           </div>
-          <Link href="/contact">
-            <div className="hidden grow sticky top-[19.25rem] sm:flex justify-end w-[10rem] aspect-square">
+          <div className="hidden grow sticky top-[19.25rem] sm:flex justify-end w-[10rem] aspect-square">
+            <Link href="/contact">
               <Badge image="/images/badge-contact.svg" />
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
