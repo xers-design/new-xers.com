@@ -14,7 +14,7 @@ const words = [
   { text: "experience", color: "text-black", dot: false },
   { text: "design", color: "text-xers-purple", dot: true },
   { text: "design", color: "text-black", dot: false },
-  { text: "spirit", color: "text-xers-green", dot: true },
+  { text: "sprint", color: "text-xers-green", dot: true },
 ];
 
 export default async function About() {
