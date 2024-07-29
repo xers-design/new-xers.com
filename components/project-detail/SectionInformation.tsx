@@ -1,8 +1,8 @@
-import Image from "next/image";
-import React from "react";
-import AnimatedText from "@/components/AnimatedText";
-import FadeUp from "@/components/FadeUp";
-import type { ProjectDetail } from "@/studio/types";
+import Image from 'next/image';
+import React from 'react';
+import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
+import type { ProjectDetail } from '@/studio/types';
 
 export default function SectionInformation({
   project,
@@ -35,7 +35,7 @@ export default function SectionInformation({
                   <AnimatedText>
                     {project.platforms
                       .map((platform) => platform.name)
-                      .join(" / ")}
+                      .join(' / ')}
                   </AnimatedText>
                 </div>
               </div>
@@ -138,14 +138,68 @@ export default function SectionInformation({
             </div>
           )}
         </div>
-        <div className="sticky top-[4.5rem] mt-2">
+        <div className="sticky top-[7rem] mt-2">
           <FadeUp>
-            <div className="hidden sm:block shrink-0 w-[17.69rem] aspect-[4.56/1]">
-              <Image
+            <div className="hidden sm:flex flex-row-reverse gap-4 items-top justify-start shrink-0 w-[17.69rem] aspect-[4.56/1]">
+              {/* <Image
                 src="/images/project-detail-devices.svg"
                 alt="Devices"
                 fill={true}
-              />
+              /> */}
+
+              {project.platformIllustrations?.includes('desktop') && (
+                <svg
+                  width="91"
+                  height="62"
+                  viewBox="0 0 91 62"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M91 0H0V51H33V62H58V51H91V0Z"
+                    fill="#D9D9D9"
+                  />
+                </svg>
+              )}
+              {project.platformIllustrations?.includes('mobile') && (
+                <svg
+                  width="39"
+                  height="62"
+                  viewBox="0 0 39 62"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="39" height="62" fill="#D9D9D9" />
+                </svg>
+              )}
+
+              {project.platformIllustrations?.includes('tablet') && (
+                <svg
+                  width="82"
+                  height="62"
+                  viewBox="0 0 82 62"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="82" height="62" fill="#D9D9D9" />
+                </svg>
+              )}
+
+              {project.platformIllustrations?.includes('watch') && (
+                <svg
+                  width="28"
+                  height="60"
+                  viewBox="0 0 28 60"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect y="16" width="28" height="28" fill="#D9D9D9" />
+                  <path d="M8 0H21L23 16H6L8 0Z" fill="#D9D9D9" />
+                  <path d="M6 44H23L21 60H8L6 44Z" fill="#D9D9D9" />
+                </svg>
+              )}
             </div>
           </FadeUp>
         </div>

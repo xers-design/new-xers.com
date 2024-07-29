@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useState, useEffect, useRef, use } from "react";
-import Player from "next-video/player";
-import { useOnClickOutside } from "usehooks-ts";
-import AnimatedText from "@/components/AnimatedText";
-import FadeUp from "@/components/FadeUp";
-import { useSmoothScroll } from "@/components/SmoothScroll";
-import { motion, AnimatePresence } from "framer-motion";
-import { SPRING_IN, SPRING_OUT } from "@/lib/animations/constants";
-import type { Video } from "@/studio/types";
+import Image from 'next/image';
+import { useState, useEffect, useRef, use } from 'react';
+import Player from 'next-video/player';
+import { useOnClickOutside } from 'usehooks-ts';
+import AnimatedText from '@/components/AnimatedText';
+import FadeUp from '@/components/FadeUp';
+import { useSmoothScroll } from '@/components/SmoothScroll';
+import { motion, AnimatePresence } from 'framer-motion';
+import { SPRING_IN, SPRING_OUT } from '@/lib/animations/constants';
+import type { Video } from '@/studio/types';
 
 const overlayAnimationProps = {
   initial: { opacity: 0 },
@@ -32,11 +32,11 @@ export default function Video({ video }: { video: Video }) {
 
   useEffect(() => {
     isOpen
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "unset");
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'unset');
     isOpen ? stopScroll() : startScroll();
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
@@ -137,6 +137,7 @@ export default function Video({ video }: { video: Video }) {
                 primaryColor="#3E8DFF"
                 metadataVideoTitle={video.caption}
                 accentColor="rgba(62, 141, 255, 0.25)"
+                className="scale-[1]"
               />
             </motion.div>
           </motion.div>

@@ -108,6 +108,7 @@ export interface ProjectDetail {
   name: string;
   challengeImage?: Image;
   platforms: Platform[];
+  platformIllustrations: 'desktop' | 'mobile' | 'tablet' | 'watch';
   highlights?: Highlight[];
   challenges: Challenge[];
   _id: string;
@@ -151,7 +152,7 @@ export interface HomePage {
 }
 
 export interface SocialLink {
-  icon: Omit<Image, "aspectRatio, caption">;
+  icon: Omit<Image, 'aspectRatio, caption'>;
   label: string;
   to: string;
   _key: string;
