@@ -9,18 +9,18 @@ const nextConfig = {
       },
     ],
   },
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/gift',
-  //       destination: 'https://gift-product-orpin.vercel.app/gift',
-  //     },
-  //     {
-  //       source: '/something/:path*',
-  //       destination: 'https://www.example2.com/:path*',
-  //     },
-  //   ]
-  // },
+  async rewrites() {
+    return [
+      {
+        source: '/gift',
+        destination: 'https://gift-product-orpin.vercel.app/gift',
+      },
+      {
+        source: '/gift/:path*',
+        destination: 'https://gift-product-orpin.vercel.app/gift/:path*',
+      },
+    ]
+  },
 }
 
 export default nextConfig
