@@ -9,6 +9,7 @@ import SectionServices from '@/components/home/SectionServices'
 import SectionServicesMobile from '@/components/home/SectionServicesMobile'
 import SectionProcess from '@/components/home/SectionProcess'
 import SectionDesignDialogues from '@/components/home/SectionDesignDialogues'
+
 import type { HomePage } from '@/studio/types'
 
 export default async function Home() {
