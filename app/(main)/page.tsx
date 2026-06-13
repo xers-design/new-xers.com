@@ -1,22 +1,22 @@
-import { sanityClient } from "@/studio/lib/client";
-import { homePageQuery } from "@/studio/queries";
-import SectionHero from "@/components/home/SectionHero";
-import SectionLogos from "@/components/home/SectionLogos";
-import SectionHighlights from "@/components/home/SectionHighlights";
-import SectionMeetFounders from "@/components/home/SectionMeetFounders";
-import SectionProjects from "@/components/home/SectionProjects";
-import SectionServices from "@/components/home/SectionServices";
-import SectionServicesMobile from "@/components/home/SectionServicesMobile";
-import SectionProcess from "@/components/home/SectionProcess";
-import SectionDesignDialogues from "@/components/home/SectionDesignDialogues";
-import type { HomePage } from "@/studio/types";
+import { sanityClient } from '@/studio/lib/client'
+import { homePageQuery } from '@/studio/queries'
+import SectionHero from '@/components/home/SectionHero'
+import SectionLogos from '@/components/home/SectionLogos'
+import SectionHighlights from '@/components/home/SectionHighlights'
+import SectionMeetFounders from '@/components/home/SectionMeetFounders'
+import SectionProjects from '@/components/home/SectionProjects'
+import SectionServices from '@/components/home/SectionServices'
+import SectionServicesMobile from '@/components/home/SectionServicesMobile'
+import SectionProcess from '@/components/home/SectionProcess'
+import SectionDesignDialogues from '@/components/home/SectionDesignDialogues'
+import type { HomePage } from '@/studio/types'
 
 export default async function Home() {
   const homePage: HomePage = await sanityClient.fetch(
     homePageQuery,
     {},
-    { cache: "no-store" }
-  );
+    { cache: 'no-store' },
+  )
 
   return (
     <>
@@ -30,5 +30,5 @@ export default async function Home() {
       <SectionProcess />
       <SectionDesignDialogues homePage={homePage} />
     </>
-  );
+  )
 }
